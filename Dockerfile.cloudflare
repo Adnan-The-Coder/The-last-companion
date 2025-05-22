@@ -1,34 +1,32 @@
-FROM node:18-alpine
+FROM node:20-alpine
 
-# Install Bun - fix for Alpine Linux
-RUN apk add --no-cache curl unzip bash
-RUN curl -fsSL https://bun.sh/install | bash
+# Accept build args
+ARG CF_PAGES_BRANCH
+ARG CF_PAGES_COMMIT_SHA
 
-# Set environment variables to match Cloudflare Pages
+ENV CF_PAGES_BRANCH=$CF_PAGES_BRANCH
+ENV CF_PAGES_COMMIT_SHA=$CF_PAGES_COMMIT_SHA
+
+# Existing ENV config
 ENV NODE_VERSION=22.12.0
 ENV BUN_VERSION=latest
 ENV CF_PAGES=1
-ENV CF_PAGES_BRANCH=${GITHUB_REF_NAME:-dev}
-ENV CF_PAGES_COMMIT_SHA=${GITHUB_SHA:-local}
 ENV CF_PAGES_URL=http://localhost:8788
 
 WORKDIR /app
 
-# Copy package.json
-COPY package.json ./
+# Copy package.json and bun.lockb for Bun package management
+COPY package.json bun.lockb* ./ 
 
 # Copy the rest of the application
-COPY . ./
+COPY . ./ 
 
-# Install dependencies using either bun or npm
+# Install wrangler as a dev dependency instead of globally
 RUN export PATH=$PATH:$HOME/.bun/bin && \
-    if command -v bun &> /dev/null; then \
-      bun install; \
-    else \
-      npm install; \
-    fi
+    (command -v bun >/dev/null 2>&1 && bun add -d wrangler || npm install --save-dev wrangler) && \
+    (command -v bun >/dev/null 2>&1 && bun install || npm install --legacy-peer-deps)
 
-# Build the application
+# Build the application using Bun or npm
 RUN export PATH=$PATH:$HOME/.bun/bin && \
     if command -v bun &> /dev/null; then \
       bun run build; \
