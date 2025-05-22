@@ -75,7 +75,7 @@ export default function FAQsPage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-[#2D3142] text-white">
         <div className="absolute inset-0 bg-[url('/images/pattern-light.png')] opacity-10"></div>
-        <div className="container mx-auto px-4 py-12 sm:py-16 relative z-10">
+        <div className="container relative z-10 mx-auto px-4 py-12 sm:py-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -97,7 +97,6 @@ export default function FAQsPage() {
         </div>
         <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
       </section>
-
       {/* FAQs Section */}
       <section className="container mx-auto px-4 py-12">
         <div className="mx-auto max-w-4xl">
@@ -126,7 +125,6 @@ export default function FAQsPage() {
           </motion.div>
         </div>
       </section>
-
       {/* Contact CTA */}
       <section className="bg-gradient-to-r from-[#2D3142] to-[#4F5D75] py-12 text-white">
         <div className="container mx-auto px-4">

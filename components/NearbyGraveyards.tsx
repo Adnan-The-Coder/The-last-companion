@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 interface Graveyard {
   id: string;
@@ -99,7 +100,7 @@ return;
                 </div>
                 <p className="text-sm text-gray-600">{graveyard.address}</p>
                 <div className="mt-2 flex justify-between">
-                  <a 
+                  <Link 
                     href={`https://maps.google.com/?q=${graveyard.address}`} 
                     target="_blank" 
                     rel="noopener noreferrer"
@@ -120,7 +121,7 @@ return;
                       />
                     </svg>
                     Directions
-                  </a>
+                  </Link>
                   <button 
                     className="flex items-center text-sm font-medium text-orange-600 hover:underline"
                     onClick={() => window.location.href = '/booking?graveyard=' + graveyard.id}

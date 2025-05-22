@@ -1,5 +1,5 @@
 {
-  "name": "restaurants-cafes",
+  "name": "the-last-companion",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,13 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "pages:build": "NEXT_IGNORE_ESLINT=1 bunx @cloudflare/next-on-pages",
+    "pages:build": "bunx @cloudflare/next-on-pages",
     "preview": "bun run pages:build && wrangler pages dev",
-    "deploy": "NEXT_IGNORE_ESLINT=1 bun run pages:build && wrangler pages deploy"
+    "deploy": "bun run pages:build && wrangler pages deploy"
   },
   "dependencies": {
     "@cloudflare/next-on-pages": "^1.13.5",
     "canvas": "^3.1.0",
+    "clsx": "^2.1.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.1",
@@ -21,10 +22,12 @@
     "eslint-plugin-tailwindcss": "^3.18.0",
     "eslint-plugin-unused-imports": "^4.1.4",
     "framer-motion": "^12.12.1",
+    "motion": "^12.12.1",
     "next": "^15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-icons": "^5.5.0"
+    "react-icons": "^5.5.0",
+    "tailwind-merge": "^3.3.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

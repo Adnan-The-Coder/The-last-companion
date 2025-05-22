@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable unused-imports/no-unused-imports */
 'use client';
 
 import React, { useState, Suspense } from 'react';
@@ -91,7 +93,6 @@ const BookingForm = () => {
       <div className="container mx-auto max-w-4xl px-4" style={{opacity: 1, transform: 'translateY(0)', transition: 'opacity 0.6s ease, transform 0.6s ease'}}>
         <h1 className="mb-2 text-center font-serif text-4xl font-bold text-[#2D3142]">Book a <span className="text-[#EF8354]">Service</span></h1>
         <p className="mb-8 text-center text-[#4F5D75]">Schedule Islamic funeral services with dignity and respect</p>
-        
         {!isComplete ? (
           <div className="mb-8 rounded-lg border border-[#BFC0C0]/10 bg-white p-6 shadow-lg transition-shadow duration-300 hover:shadow-xl">
             <div className="mb-8 flex items-center justify-between">
@@ -108,7 +109,6 @@ const BookingForm = () => {
                 </div>
               ))}
             </div>
-            
             {step === 1 && (<div className="animate-fade-in">
               <h2 className="mb-4 font-serif text-2xl font-bold text-[#2D3142]">Select a <span className="text-[#EF8354]">Service</span></h2>
               <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -126,7 +126,6 @@ const BookingForm = () => {
                   </div>
                 ))}
               </div>
-              
               <div className="flex justify-end">
                 <button onClick={nextStep}
                   disabled={!selectedService}
@@ -142,10 +141,8 @@ const BookingForm = () => {
                 </button>
               </div>
             </div>)}
-            
             {step === 2 && (<div className="animate-fade-in">
               <h2 className="mb-4 font-serif text-2xl font-bold text-[#2D3142]">Your <span className="text-[#EF8354]">Details</span></h2>
-              
               <div className="mb-6 space-y-4">
                 <div>
                   <label htmlFor="name" className="mb-1 block text-sm font-medium text-[#4F5D75]">Full Name</label>
@@ -158,7 +155,6 @@ const BookingForm = () => {
                     required
                   />
                 </div>
-                
                 <div>
                   <label htmlFor="email" className="mb-1 block text-sm font-medium text-[#4F5D75]">Email Address</label>
                   <input type="email"
@@ -170,7 +166,6 @@ const BookingForm = () => {
                     required
                   />
                 </div>
-                
                 <div>
                   <label htmlFor="phone" className="mb-1 block text-sm font-medium text-[#4F5D75]">Phone Number</label>
                   <input type="tel"
@@ -182,7 +177,6 @@ const BookingForm = () => {
                     required
                   />
                 </div>
-                
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   <div>
                     <label htmlFor="date" className="mb-1 block text-sm font-medium text-[#4F5D75]">Date</label>
@@ -195,7 +189,6 @@ const BookingForm = () => {
                       required
                     />
                   </div>
-                  
                   <div>
                     <label htmlFor="time" className="mb-1 block text-sm font-medium text-[#4F5D75]">Time</label>
                     <select id="time"
@@ -215,7 +208,6 @@ const BookingForm = () => {
                     </select>
                   </div>
                 </div>
-                
                 <div>
                   <label htmlFor="notes" className="mb-1 block text-sm font-medium text-[#4F5D75]">Additional Notes (Optional)</label>
                   <textarea id="notes"
@@ -226,14 +218,12 @@ const BookingForm = () => {
                     placeholder="Any special requests or information we should know"></textarea>
                 </div>
               </div>
-              
               <div className="flex justify-between">
                 <button onClick={prevStep}
                   className="group relative overflow-hidden rounded-md border border-[#2D3142] bg-white px-6 py-2 font-medium text-[#2D3142] transition-all duration-300 hover:shadow-md">
                   <span className="relative z-10">Back</span>
                   <span className="absolute inset-0 bg-[#2D3142]/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
                 </button>
-                
                 <button onClick={nextStep}
                   disabled={!name || !email || !phone || !selectedDate || !selectedTime}
                   className={`group relative overflow-hidden rounded-md px-6 py-2 font-medium text-white transition-all duration-300 ${
@@ -248,13 +238,10 @@ const BookingForm = () => {
                 </button>
               </div>
             </div>)}
-            
             {step === 3 && (<div className="animate-fade-in">
               <h2 className="mb-4 font-serif text-2xl font-bold text-[#2D3142]">Confirm Your <span className="text-[#EF8354]">Booking</span></h2>
-              
               <div className="mb-6 rounded-lg bg-[#2D3142]/5 p-6">
                 <h3 className="mb-4 font-bold text-[#2D3142]">Booking Summary</h3>
-                
                 <div className="space-y-3">
                   <div className="flex justify-between">
                     <dt className="text-[#4F5D75]">Service:</dt>
@@ -262,28 +249,24 @@ const BookingForm = () => {
                       {serviceTypes.find(s => s.id === selectedService)?.name}
                     </dd>
                   </div>
-                  
                   <div className="flex justify-between">
                     <dt className="text-[#4F5D75]">Date & Time:</dt>
                     <dd className="font-medium text-[#2D3142]">
                       {selectedDate} at {selectedTime}
                     </dd>
                   </div>
-                  
                   <div className="flex justify-between">
                     <dt className="text-[#4F5D75]">Contact:</dt>
                     <dd className="font-medium text-[#2D3142]">
                       {name}, {email}, {phone}
                     </dd>
                   </div>
-                  
                   {notes && (
                     <div className="flex justify-between">
                       <dt className="text-[#4F5D75]">Notes:</dt>
                       <dd className="font-medium text-[#2D3142]">{notes}</dd>
                     </div>
                   )}
-                  
                   <div className="flex justify-between">
                     <dt className="text-[#4F5D75]">Price:</dt>
                     <dd className="font-medium text-[#2D3142]">
@@ -292,14 +275,12 @@ const BookingForm = () => {
                   </div>
                 </div>
               </div>
-              
               <div className="flex justify-between">
                 <button onClick={prevStep}
                   className="group relative overflow-hidden rounded-md border border-[#2D3142] bg-white px-6 py-2 font-medium text-[#2D3142] transition-all duration-300 hover:shadow-md">
                   <span className="relative z-10">Back</span>
                   <span className="absolute inset-0 bg-[#2D3142]/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
                 </button>
-                
                 <button onClick={handleSubmit}
                   disabled={isSubmitting}
                   className="group relative flex items-center overflow-hidden rounded-md bg-[#2D3142] px-6 py-2 font-medium text-white transition-all duration-300 hover:bg-[#2D3142]/90 hover:shadow-md">

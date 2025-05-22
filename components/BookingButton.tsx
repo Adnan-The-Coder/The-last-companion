@@ -6,7 +6,7 @@ const BookingButton = () => {
     <Link href="/booking" className="btn-booking">
       <svg 
         xmlns="http://www.w3.org/2000/svg" 
-        className="size-5 mr-2" 
+        className="mr-2 size-5" 
         fill="none" 
         viewBox="0 0 24 24" 
         stroke="currentColor"
