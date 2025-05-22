@@ -19,16 +19,16 @@ const Footer = () => {
   {
     id: 1,
     name: "Syed Adnan Ali",
-    designation: "Software Engineer",
+    designation: "Backend Developer",
     image:
       "/AdnanIm-1.jpg",
   },
   {
     id: 2,
-    name: "John Doe",
-    designation: "Software Engineer",
+    name: "Arshil Ali Abbas",
+    designation: "Frontend Developer",
     image:
-      "/AdnanIm-1.jpg",
+      "/Arshil.jpg",
   },
   ]
 
