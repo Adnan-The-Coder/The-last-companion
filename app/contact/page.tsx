@@ -35,7 +35,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="mb-1 text-lg font-bold text-[#2D3142] transition-colors duration-300 group-hover:text-[#EF8354]">Phone (24/7)</h3>
-                    <p className="text-[#4F5D75]">+1-234-567-8900</p>
+                    <p className="text-[#4F5D75]">+91 9618316290</p>
                     <p className="mt-1 text-sm text-[#4F5D75]/70">Available 24 hours a day, 7 days a week</p>
                   </div>
                 </div>
@@ -47,7 +47,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="mb-1 text-lg font-bold text-[#2D3142] transition-colors duration-300 group-hover:text-[#EF8354]">Email</h3>
-                    <p className="text-[#4F5D75]">info@thelastcompanion.com</p>
+                    <p className="text-[#4F5D75]">thelastcompanion1@gmail.com</p>
                   </div>
                 </div>
                 <div className="group flex items-start">
@@ -59,7 +59,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="mb-1 text-lg font-bold text-[#2D3142] transition-colors duration-300 group-hover:text-[#EF8354]">Location</h3>
-                    <p className="text-[#4F5D75]">123 Islamic Center Dr,<br />New York, NY 10001</p>
+                    <p className="text-[#4F5D75]">7-13/Plot no120 Alkapur,<br />500089, Hyderabad, India</p>
                     <p className="mt-1 text-sm text-[#4F5D75]/70">Our main office and prayer hall</p>
                   </div>
                 </div>
@@ -150,7 +150,7 @@ export default function Contact() {
               Our Location
               <span className="absolute inset-x-1/4 -bottom-2 h-0.5 rounded-full bg-[#EF8354]/70"></span>
             </h2>
-            <p className="mx-auto mt-6 max-w-3xl text-[#4F5D75]">Visit our main office and prayer hall located in the heart of New York City.</p>
+            <p className="mx-auto mt-6 max-w-3xl text-[#4F5D75]">Visit our main office and prayer hall located in Hyderabad, India.</p>
           </div>
           <div className="h-96 overflow-hidden rounded-lg border border-[#BFC0C0]/10 bg-white/80 shadow-md">
             {/* Map would be embedded here in a real implementation */}
@@ -166,10 +166,10 @@ export default function Contact() {
           <h2 className="mb-6 font-serif text-3xl font-bold">Need Immediate Assistance?</h2>
           <p className="mx-auto mb-8 max-w-3xl text-xl text-[#BFC0C0]">Our team is available 24/7 to provide support and guidance during your time of need.</p>
           <a 
-            href="tel:+1234567890" 
+            href="tel:+919618316290" 
             className="group relative inline-block overflow-hidden rounded-md bg-[#EF8354] px-8 py-4 text-xl font-medium text-white transition-all duration-300 hover:bg-[#D64C1B] hover:shadow-lg"
           >
-            <span className="relative z-10">Call Now: +1-234-567-8900</span>
+            <span className="relative z-10">Call Now: +91 9618316290</span>
             <span className="absolute inset-0 bg-gradient-to-r from-[#D64C1B] to-[#EF8354] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
           </a>
         </div>

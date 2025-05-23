@@ -71,7 +71,7 @@ export default function ContactUsPage() {
                   <div>
                     <h3 className="text-lg font-medium text-[#2D3142]">Phone</h3>
                     <p className="text-[#4F5D75]">Available 24/7 for emergencies</p>
-                    <a href="tel:+18001234567" className="font-medium text-[#EF8354] transition-colors duration-200 hover:text-[#D64C1B]">+1 (800) 123-4567</a>
+                    <a href="tel:+919618316290" className="font-medium text-[#EF8354] transition-colors duration-200 hover:text-[#D64C1B]">+91 9618316290</a>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -83,7 +83,7 @@ export default function ContactUsPage() {
                   <div>
                     <h3 className="text-lg font-medium text-[#2D3142]">Email</h3>
                     <p className="text-[#4F5D75]">We'll respond as soon as possible</p>
-                    <a href="mailto:info@lastcompanion.com" className="font-medium text-[#EF8354] transition-colors duration-200 hover:text-[#D64C1B]">info@lastcompanion.com</a>
+                    <a href="mailto:thelastcompanion1@gmail.com" className="font-medium text-[#EF8354] transition-colors duration-200 hover:text-[#D64C1B]">thelastcompanion1@gmail.com</a>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -97,9 +97,9 @@ export default function ContactUsPage() {
                     <h3 className="text-lg font-medium text-[#2D3142]">Address</h3>
                     <p className="text-[#4F5D75]">Main Office</p>
                     <address className="not-italic text-[#4F5D75]">
-                      123 Compassion Lane<br />
-                      Suite 100<br />
-                      New York, NY 10001
+                      7-13/Plot no120 Alkapur<br />
+                      500089<br />
+                      Hyderabad, India
                     </address>
                   </div>
                 </div>
@@ -290,7 +290,7 @@ export default function ContactUsPage() {
                 <p className="text-white/80">We understand that loss can occur at any time. Our team is available day and night to provide immediate assistance.</p>
               </div>
               <div className="mt-4 md:mt-0">
-                <a href="tel:+1234567890" className="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-[#2D3142] transition-colors duration-200 hover:bg-[#EF8354] hover:text-white">
+                <a href="tel:+919618316290" className="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-[#2D3142] transition-colors duration-200 hover:bg-[#EF8354] hover:text-white">
                   <svg xmlns="http://www.w3.org/2000/svg" className="mr-2 size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>

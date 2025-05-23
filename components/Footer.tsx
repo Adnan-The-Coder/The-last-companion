@@ -154,9 +154,9 @@ const Footer = () => {
                   </svg>
                 </span>
                 <span className="text-[#BFC0C0]">
-                  1234 Islamic Center Dr.<br />
-                  Suite 100<br />
-                  Houston, TX 77001
+                  7-13/Plot no120 Alkapur<br />
+                  500089<br />
+                  Hyderabad, India
                 </span>
               </li>
               <li className="flex items-center">
@@ -165,7 +165,7 @@ const Footer = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                 </span>
-                <Link href="tel:+1234567890" className="text-[#BFC0C0] transition-colors duration-300 hover:text-[#EF8354]">+1-234-567-8900</Link>
+                <Link href="tel:+919618316290" className="text-[#BFC0C0] transition-colors duration-300 hover:text-[#EF8354]">+91 9618316290</Link>
               </li>
               <li className="flex items-center">
                 <span className="mr-3 inline-flex items-center justify-center rounded-full bg-[#4F5D75]/20 p-2">
@@ -173,7 +173,7 @@ const Footer = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </span>
-                <Link href="mailto:info@thelastcompanion.com" className="text-[#BFC0C0] transition-colors duration-300 hover:text-[#EF8354]">info@thelastcompanion.com</Link>
+                <Link href="mailto:thelastcompanion1@gmail.com" className="text-[#BFC0C0] transition-colors duration-300 hover:text-[#EF8354]">thelastcompanion1@gmail.com</Link>
               </li>
             </ul>
           </div>

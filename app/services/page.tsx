@@ -158,8 +158,8 @@ export default function Services() {
           <h2 className="mb-6 font-serif text-3xl font-bold">Need Assistance with Funeral Services?</h2>
           <p className="mx-auto mb-8 max-w-3xl text-xl text-[#BFC0C0]">Our team is available 24/7 to provide support and guidance during your time of need.</p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <a href="tel:+1234567890" className="group relative inline-block overflow-hidden rounded-md bg-[#EF8354] px-6 py-3 font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#D64C1B] hover:shadow-lg">
-              <span className="relative z-10">Call Now: +1-234-567-8900</span>
+            <a href="tel:+919618316290" className="group relative inline-block overflow-hidden rounded-md bg-[#EF8354] px-6 py-3 font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#D64C1B] hover:shadow-lg">
+              <span className="relative z-10">Call Now: +91 9618316290</span>
               <span className="absolute inset-0 bg-gradient-to-r from-[#D64C1B] to-[#EF8354] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
             </a>
             <Link href="/contact" className="group relative inline-block overflow-hidden rounded-md border border-[#4F5D75] px-6 py-3 font-medium text-white transition-all duration-300 hover:border-[#EF8354] hover:shadow-md">
