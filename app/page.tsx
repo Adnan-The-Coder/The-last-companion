@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <>
+    <div>
       {/* Hero Section */}
       <section className="relative text-white">
         <div className="absolute inset-0 bg-[url('/images/hero-bg.jpg')] bg-cover bg-center opacity-30"></div>
@@ -51,36 +51,35 @@ export default function Home() {
             <p className="mx-auto mt-6 max-w-3xl text-lg text-[#4F5D75]">We provide a complete range of funeral services that adhere to Islamic principles, offering support and guidance during difficult times.</p>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {/* Service 1 */}
+            {/* Service 1 - Ghusl */}
             <div className="group rounded-lg border border-[#BFC0C0]/20 bg-white/80 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{opacity: 1, transform: 'translateY(0)', transition: 'opacity 0.5s ease, transform 0.5s ease'}}>
               <div className="mb-4 flex size-16 items-center justify-center rounded-full bg-[#4F5D75]/10 text-[#EF8354] transition-colors duration-300 group-hover:bg-[#EF8354]/10">
                 <svg xmlns="http://www.w3.org/2000/svg" className="size-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
               </div>
-              <h3 className="mb-2 font-serif text-xl font-bold text-[#2D3142] transition-colors duration-300 group-hover:text-[#EF8354]">Janazah Preparation</h3>
-              <p className="text-[#4F5D75]">Complete preparation of the deceased according to Islamic traditions, including washing (ghusl) and shrouding (kafan).</p>
+              <h3 className="mb-2 font-serif text-xl font-bold text-[#2D3142] transition-colors duration-300 group-hover:text-[#EF8354]">Ghusl Service</h3>
+              <p className="text-[#4F5D75]">Complete Islamic ritual washing (ghusl) and shrouding (kafan) of the deceased according to Islamic traditions. Affordable payment options available.</p>
             </div>
-            {/* Service 2 */}
-            <div className="card card-hover animate-fade-in" style={{animationDelay: '200ms'}}>
-              <div className="mb-4 flex size-16 items-center justify-center rounded-full bg-blue-100 text-blue-600">
+            {/* Service 2 - Sitting Arrangements */}
+            <div className="group rounded-lg border border-[#BFC0C0]/20 bg-white/80 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{opacity: 1, transform: 'translateY(0)', transition: 'opacity 0.6s ease, transform 0.6s ease'}}>
+              <div className="mb-4 flex size-16 items-center justify-center rounded-full bg-[#4F5D75]/10 text-[#EF8354] transition-colors duration-300 group-hover:bg-[#EF8354]/10">
                 <svg xmlns="http://www.w3.org/2000/svg" className="size-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
-              <h3 className="mb-2 font-serif text-xl font-bold text-blue-800">Janazah Prayer</h3>
-              <p className="text-gray-600">Arrangement of funeral prayers (Salat al-Janazah) with coordination of prayer times and locations convenient for family and community.</p>
+              <h3 className="mb-2 font-serif text-xl font-bold text-[#2D3142] transition-colors duration-300 group-hover:text-[#EF8354]">Sitting Arrangements</h3>
+              <p className="text-[#4F5D75]">Arrangements for mourners including seating, water, and basic facilities for those who come to pay their respects. Flexible payment options available based on requirements.</p>
             </div>
-            {/* Service 3 */}
-            <div className="card card-hover animate-fade-in" style={{animationDelay: '300ms'}}>
-              <div className="mb-4 flex size-16 items-center justify-center rounded-full bg-blue-100 text-blue-600">
+            {/* Service 3 - Islamic Burial */}
+            <div className="group rounded-lg border border-[#BFC0C0]/20 bg-white/80 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{opacity: 1, transform: 'translateY(0)', transition: 'opacity 0.7s ease, transform 0.7s ease'}}>
+              <div className="mb-4 flex size-16 items-center justify-center rounded-full bg-[#4F5D75]/10 text-[#EF8354] transition-colors duration-300 group-hover:bg-[#EF8354]/10">
                 <svg xmlns="http://www.w3.org/2000/svg" className="size-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                 </svg>
               </div>
-              <h3 className="mb-2 font-serif text-xl font-bold text-blue-800">Islamic Burial</h3>
-              <p className="text-gray-600">Proper Islamic burial services with cemetery arrangements and grave preparation according to Islamic guidelines.</p>
+              <h3 className="mb-2 font-serif text-xl font-bold text-[#2D3142] transition-colors duration-300 group-hover:text-[#EF8354]">Islamic Burial</h3>
+              <p className="text-[#4F5D75]">Proper Islamic burial services with cemetery arrangements and grave preparation according to Islamic guidelines.</p>
             </div>
           </div>
           <div className="animate-fade-in mt-12 flex flex-wrap justify-center gap-4" style={{animationDelay: '400ms'}}>
@@ -169,7 +168,7 @@ export default function Home() {
                     </svg>
                   </div>
                   <h3 className="mb-2 font-serif text-xl font-bold text-somber-800">Janazah Prayer</h3>
-                  <p className="text-somber-600">Arrangement of funeral prayers (Salat al-Janazah) with coordination of prayer times and locations convenient for family and community.</p>
+                  <p className="text-somber-600">Coordination with local masjids for funeral prayers (Salat al-Janazah) with arrangement of prayer times convenient for family and community.</p>
                 </div>
               </div>
             </div>
@@ -294,7 +293,7 @@ export default function Home() {
           <div className="mx-auto max-w-3xl">
             <div className="mb-8 rounded-lg border-l-4 border-[#EF8354] bg-white p-6 shadow-md transition-shadow duration-300 hover:shadow-lg" style={{opacity: 1, transform: 'translateY(0)', transition: 'opacity 0.5s ease, transform 0.5s ease'}}>
               <h3 className="mb-2 text-xl font-bold text-[#2D3142]">What Islamic funeral services do you provide?</h3>
-              <p className="text-[#4F5D75]">We provide complete Islamic funeral services including Ghusl (ritual washing), Kafan (shrouding), Janazah prayer arrangements, transportation, and burial services in accordance with Islamic traditions.</p>
+              <p className="text-[#4F5D75]">We provide complete Islamic funeral services including Ghusl (ritual washing), Kafan (shrouding), coordination with masjids for Janazah prayers, transportation, sitting arrangements for mourners, and burial services in accordance with Islamic traditions.</p>
             </div>
             <div className="mb-8 rounded-lg border-l-4 border-[#EF8354] bg-white p-6 shadow-md transition-shadow duration-300 hover:shadow-lg" style={{opacity: 1, transform: 'translateY(0)', transition: 'opacity 0.6s ease, transform 0.6s ease'}}>
               <h3 className="mb-2 text-xl font-bold text-[#2D3142]">How quickly can you respond to a death?</h3>
@@ -319,6 +318,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

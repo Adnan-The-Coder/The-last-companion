@@ -58,15 +58,16 @@ export default function Services() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="mb-3 font-serif text-2xl font-bold text-[#2D3142] transition-colors duration-300 group-hover:text-[#EF8354]">Janazah Prayer</h3>
-                <p className="mb-4 text-[#4F5D75]">We coordinate and arrange for Salat al-Janazah (funeral prayer) services, including:</p>
+                <h3 className="mb-3 font-serif text-2xl font-bold text-[#2D3142] transition-colors duration-300 group-hover:text-[#EF8354]">Sitting Arrangements</h3>
+                <p className="mb-4 text-[#4F5D75]">We provide comfortable arrangements for mourners who come to pay their respects, including:</p>
                 <ul className="mb-4 list-disc space-y-1 pl-5 text-[#4F5D75]">
-                  <li>Coordination with local masjid or prayer space</li>
-                  <li>Arrangement with local Imam to lead the prayer</li>
-                  <li>Transportation to and from prayer location</li>
-                  <li>Guidance for family and community members</li>
+                  <li>Spacious seating arrangements for family and visitors</li>
+                  <li>Separate sections for men and women</li>
+                  <li>Water and basic refreshments</li>
+                  <li>Comfortable facilities for elderly and those with special needs</li>
+                  <li>Coordination with local community centers when needed</li>
                 </ul>
-                <Link href="/services/janazah-prayer" className="group inline-flex items-center font-medium text-[#EF8354] transition-colors duration-300 hover:text-[#D64C1B]">
+                <Link href="/services/sitting-arrangements" className="group inline-flex items-center font-medium text-[#EF8354] transition-colors duration-300 hover:text-[#D64C1B]">
                   <span>Learn More</span>
                   <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </Link>
@@ -105,19 +106,31 @@ export default function Services() {
               </div>
             </div>
             {/* Service 5 */}
-            <div className="overflow-hidden rounded-lg bg-gray-50 shadow-md">
-              <div className="h-48 bg-blue-800"></div>
+            <div className="group overflow-hidden rounded-lg bg-[#2D3142]/5 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{opacity: 1, transform: 'translateY(0)', transition: 'opacity 0.5s ease, transform 0.5s ease'}}>
+              <div className="relative h-48 overflow-hidden bg-[#2D3142]">
+                <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#2D3142]/0 to-[#2D3142]/90"></div>
+                <div className="absolute bottom-4 left-4 z-20">
+                  <div className="flex size-12 items-center justify-center rounded-full bg-[#EF8354]/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="size-6 text-[#EF8354]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
               <div className="p-6">
-                <h3 className="mb-3 font-serif text-2xl font-bold text-blue-900">Prayer Hall</h3>
-                <p className="mb-4 text-gray-600">We offer a dedicated prayer hall for Janazah prayers and gatherings, featuring:</p>
-                <ul className="mb-4 list-disc space-y-1 pl-5 text-gray-600">
-                  <li>Spacious and clean prayer area</li>
-                  <li>Separate sections for men and women</li>
-                  <li>Wudu (ablution) facilities</li>
-                  <li>Comfortable seating for elderly and those with special needs</li>
+                <h3 className="mb-3 font-serif text-2xl font-bold text-[#2D3142] transition-colors duration-300 group-hover:text-[#EF8354]">Ghusl Service</h3>
+                <p className="mb-4 text-[#4F5D75]">We provide complete Islamic ritual washing and shrouding services, including:</p>
+                <ul className="mb-4 list-disc space-y-1 pl-5 text-[#4F5D75]">
+                  <li>Ritual washing (Ghusl) performed by trained professionals</li>
+                  <li>Same-gender washing as per Islamic tradition</li>
+                  <li>High-quality kafan (shrouding) materials</li>
+                  <li>Respectful and dignified handling throughout the process</li>
                   <li>Available 24/7 for emergency needs</li>
                 </ul>
-                <Link href="/services/prayer-hall" className="font-medium text-blue-700 hover:text-blue-900">Learn More →</Link>
+                <Link href="/services/ghusl-service" className="group inline-flex items-center font-medium text-[#EF8354] transition-colors duration-300 hover:text-[#D64C1B]">
+                  <span>Learn More</span>
+                  <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </Link>
               </div>
             </div>
             {/* Service 6 */}

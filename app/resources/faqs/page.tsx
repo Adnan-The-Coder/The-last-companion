@@ -10,7 +10,7 @@ export default function FAQsPage() {
   const faqs = [
     {
       question: "What happens during an Islamic funeral?",
-      answer: "Islamic funerals involve washing and shrouding the body, performing the Janazah prayer, and burial as soon as possible after death. The process is conducted with dignity and respect, following Islamic traditions that have been practiced for centuries."
+      answer: "Islamic funerals involve Ghusl (ritual washing) and shrouding the body, arranging sitting accommodations for mourners, and burial as soon as possible after death. The process is conducted with dignity and respect, following Islamic traditions that have been practiced for centuries."
     },
     {
       question: "How quickly should burial take place?",
@@ -25,8 +25,12 @@ export default function FAQsPage() {
       answer: "Islamic funerals are typically open to all Muslims who wish to attend, regardless of their relationship to the deceased. Non-Muslims may also attend to pay their respects, though they may not participate in the religious rituals."
     },
     {
-      question: "What is the Janazah prayer?",
-      answer: "The Janazah prayer is a special prayer performed for the deceased. It is a communal obligation (fard kifayah) in Islam, meaning that if some members of the community perform it, the obligation is fulfilled for all."
+      question: "What is the Ghusl service?",
+      answer: "The Ghusl service is the ritual washing of the deceased according to Islamic tradition. It is performed by trained professionals of the same gender as the deceased, using specific methods prescribed in Islamic teachings. This is followed by shrouding (kafan) with clean, white cloth."
+    },
+    {
+      question: "What are sitting arrangements for mourners?",
+      answer: "Sitting arrangements for mourners provide a comfortable space for family and community members to gather, pay respects, and offer condolences. These include separate seating areas for men and women, basic refreshments, and facilities that accommodate the needs of all visitors."
     },
     {
       question: "How should one dress when attending an Islamic funeral?",

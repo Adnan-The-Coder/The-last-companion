@@ -36,10 +36,16 @@ const BookingForm = () => {
   // Mock data for service types
   const serviceTypes: ServiceType[] = [
     {
-      id: 'janazah',
-      name: 'Janazah Prayer Service',
-      description: 'Complete Islamic funeral prayer service with religious guidance.',
-      price: '$500'
+      id: 'ghusl',
+      name: 'Ghusl Service',
+      description: 'Complete Islamic ritual washing and shrouding (kafan) of the deceased.',
+      price: '$400'
+    },
+    {
+      id: 'sitting',
+      name: 'Sitting Arrangements Service',
+      description: 'Arrangements for mourners including seating, water, and basic facilities.',
+      price: '$300'
     },
     {
       id: 'burial',
@@ -56,8 +62,8 @@ const BookingForm = () => {
     {
       id: 'complete',
       name: 'Complete Funeral Package',
-      description: 'All-inclusive package with prayer, burial, and transportation services.',
-      price: '$1,800'
+      description: 'All-inclusive package with ghusl, sitting arrangements, burial, and transportation services.',
+      price: '$2,000'
     }
   ];
 
