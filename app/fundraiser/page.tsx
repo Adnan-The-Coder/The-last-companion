@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 
 export default function FundraiserPage() {
   const [donationAmount, setDonationAmount] = useState<number>(100);
@@ -59,7 +58,6 @@ export default function FundraiserPage() {
           </div>
         </div>
       </section>
-
       {/* Donation Form Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
@@ -73,7 +71,6 @@ export default function FundraiserPage() {
                 Your generous contributions help us serve the community and provide assistance to those who cannot afford funeral services.
               </p>
             </div>
-
             <div className="rounded-lg bg-white p-8 shadow-lg">
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Donation Amount */}
@@ -111,7 +108,6 @@ export default function FundraiserPage() {
                     />
                   </div>
                 </div>
-
                 {/* Personal Information */}
                 <div className="space-y-4">
                   <div className="flex items-center">
@@ -126,7 +122,6 @@ export default function FundraiserPage() {
                       Donate Anonymously
                     </label>
                   </div>
-
                   {!isAnonymous && (
                     <div>
                       <label htmlFor="name" className="mb-2 block font-medium text-[#2D3142]">
@@ -142,7 +137,6 @@ export default function FundraiserPage() {
                       />
                       </div>
                   )}
-
                   <div>
                     <label htmlFor="email" className="mb-2 block font-medium text-[#2D3142]">
                       Email
@@ -156,7 +150,6 @@ export default function FundraiserPage() {
                       required
                     />
                   </div>
-
                   <div>
                     <label htmlFor="phone" className="mb-2 block font-medium text-[#2D3142]">
                       Phone
@@ -170,7 +163,6 @@ export default function FundraiserPage() {
                       required
                     />
                   </div>
-
                   <div>
                     <label htmlFor="message" className="mb-2 block font-medium text-[#2D3142]">
                       Message (Optional)
@@ -184,7 +176,6 @@ export default function FundraiserPage() {
                     ></textarea>
                   </div>
                 </div>
-
                 {/* Submit Button */}
                 <div>
                   <button
@@ -203,7 +194,6 @@ export default function FundraiserPage() {
           </div>
         </div>
       </section>
-
       {/* Impact Section */}
       <section className="bg-[#2D3142] py-16 text-white">
         <div className="container mx-auto px-4">
@@ -216,10 +206,9 @@ export default function FundraiserPage() {
               See how your donations are making a difference in our community.
             </p>
           </div>
-
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div className="rounded-lg bg-[#1A1D2A] p-6 text-center shadow-lg transition-transform duration-300 hover:-translate-y-1">
-              <div className="mb-4 mx-auto flex size-16 items-center justify-center rounded-full bg-[#4F5D75]/20 text-[#EF8354]">
+              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-[#4F5D75]/20 text-[#EF8354]">
                 <svg xmlns="http://www.w3.org/2000/svg" className="size-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -229,9 +218,8 @@ export default function FundraiserPage() {
                 Your donations help us maintain our 24/7 support services for families in need during difficult times.
               </p>
             </div>
-
             <div className="rounded-lg bg-[#1A1D2A] p-6 text-center shadow-lg transition-transform duration-300 hover:-translate-y-1">
-              <div className="mb-4 mx-auto flex size-16 items-center justify-center rounded-full bg-[#4F5D75]/20 text-[#EF8354]">
+              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-[#4F5D75]/20 text-[#EF8354]">
                 <svg xmlns="http://www.w3.org/2000/svg" className="size-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
@@ -241,9 +229,8 @@ export default function FundraiserPage() {
                 We provide financial assistance for funeral services to families who cannot afford them.
               </p>
             </div>
-
             <div className="rounded-lg bg-[#1A1D2A] p-6 text-center shadow-lg transition-transform duration-300 hover:-translate-y-1">
-              <div className="mb-4 mx-auto flex size-16 items-center justify-center rounded-full bg-[#4F5D75]/20 text-[#EF8354]">
+              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-[#4F5D75]/20 text-[#EF8354]">
                 <svg xmlns="http://www.w3.org/2000/svg" className="size-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
@@ -256,7 +243,6 @@ export default function FundraiserPage() {
           </div>
         </div>
       </section>
-
       {/* FAQ Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
@@ -269,7 +255,6 @@ export default function FundraiserPage() {
               Common questions about our fundraising initiatives.
             </p>
           </div>
-
           <div className="mx-auto max-w-3xl">
             <div className="mb-8 rounded-lg border-l-4 border-[#EF8354] bg-white p-6 shadow-md transition-shadow duration-300 hover:shadow-lg">
               <h3 className="mb-2 text-xl font-bold text-[#2D3142]">How is my donation used?</h3>
@@ -277,21 +262,18 @@ export default function FundraiserPage() {
                 Your donations directly support our Islamic funeral services, including financial assistance for families in need, community education programs, and maintaining our 24/7 support services.
               </p>
             </div>
-
             <div className="mb-8 rounded-lg border-l-4 border-[#EF8354] bg-white p-6 shadow-md transition-shadow duration-300 hover:shadow-lg">
               <h3 className="mb-2 text-xl font-bold text-[#2D3142]">Is my donation tax-deductible?</h3>
               <p className="text-[#4F5D75]">
                 Yes, all donations are tax-deductible. You will receive a receipt for your donation that can be used for tax purposes.
               </p>
             </div>
-
             <div className="mb-8 rounded-lg border-l-4 border-[#EF8354] bg-white p-6 shadow-md transition-shadow duration-300 hover:shadow-lg">
               <h3 className="mb-2 text-xl font-bold text-[#2D3142]">Can I make a recurring donation?</h3>
               <p className="text-[#4F5D75]">
                 Yes, you can set up monthly recurring donations through our Razorpay payment system. This helps us plan our services and support more effectively.
               </p>
             </div>
-
             <div className="mb-8 rounded-lg border-l-4 border-[#EF8354] bg-white p-6 shadow-md transition-shadow duration-300 hover:shadow-lg">
               <h3 className="mb-2 text-xl font-bold text-[#2D3142]">How secure is the donation process?</h3>
               <p className="text-[#4F5D75]">
