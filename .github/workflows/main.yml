@@ -6,11 +6,13 @@
         - dev
         - test
         - main
+        - feat/backend
     pull_request:
       branches:
         - dev
         - test
         - main
+        - feat/backend
 
   jobs:
     lint:

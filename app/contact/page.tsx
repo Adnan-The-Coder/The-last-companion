@@ -1,5 +1,88 @@
+"use client";
+import { useState } from 'react';
+import { createClient } from '@supabase/supabase-js';
+
+// Initialize Supabase client
+// Replace these with your actual Supabase URL and anon key
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phoneNumber: '',
+    subject: '',
+    message: ''
+  });
+  
+  const [status, setStatus] = useState({
+    isSubmitting: false,
+    isSuccess: false,
+    isError: false,
+    message: ''
+  });
+
+  const handleInputChange = (e:any) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id === 'phone' ? 'phoneNumber' : id]: value
+    }));
+  };
+
+  const handleSubmit = async (e:any) => {
+    e.preventDefault();
+    setStatus({ isSubmitting: true, isSuccess: false, isError: false, message: '' });
+
+    try {
+      // Insert data into Supabase using the client library
+      const { error } = await supabase
+        .from('lastCompanionContact')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            phoneNumber: formData.phoneNumber,
+            subject: formData.subject,
+            message: formData.message
+          }
+        ]);
+
+      if (error) throw error;
+
+      // Reset form and show success message
+      setFormData({
+        name: '',
+        email: '',
+        phoneNumber: '',
+        subject: '',
+        message: ''
+      });
+      
+      setStatus({
+        isSubmitting: false,
+        isSuccess: true,
+        isError: false,
+        message: 'Thank you for your message! We\'ll get back to you as soon as possible.'
+      });
+
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setStatus(prev => ({ ...prev, isSuccess: false, message: '' }));
+      }, 5000);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setStatus({
+        isSubmitting: false,
+        isSuccess: false,
+        isError: true,
+        message: 'There was an error sending your message. Please try again or call us directly.'
+      });
+    }
+  };
+
   return (
     <>
       {/* Hero Section */}
@@ -84,21 +167,56 @@ export default function Contact() {
               <p className="mb-8 text-[#4F5D75]">
                 If you have any questions or need assistance, please don't hesitate to reach out. We're here to help.  
               </p>
-              <form className="rounded-lg border border-[#BFC0C0]/10 bg-[#2D3142]/5 p-6 shadow-md">
+              {/* Success/Error Messages */}
+              {status.isSuccess && (
+                <div className="mb-6 rounded-md border border-green-200 bg-green-50 p-4">
+                  <div className="flex">
+                    <svg className="size-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <div className="ml-3">
+                      <p className="text-sm font-medium text-green-800">
+                        {status.message}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {status.isError && (
+                <div className="mb-6 rounded-md border border-red-200 bg-red-50 p-4">
+                  <div className="flex">
+                    <svg className="size-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    </svg>
+                    <div className="ml-3">
+                      <p className="text-sm font-medium text-red-800">
+                        {status.message}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+              <form onSubmit={handleSubmit} className="rounded-lg border border-[#BFC0C0]/10 bg-[#2D3142]/5 p-6 shadow-md">
                 <div className="mb-4">
-                  <label htmlFor="name" className="mb-2 block font-medium text-[#2D3142]">Your Name</label>
+                  <label htmlFor="name" className="mb-2 block font-medium text-[#2D3142]">Your Name *</label>
                   <input 
                     type="text" 
                     id="name" 
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
                     className="w-full rounded-md border border-[#BFC0C0]/30 bg-white/80 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#EF8354]/50"
                     placeholder="Enter your name"
                   />
                 </div>
                 <div className="mb-4">
-                  <label htmlFor="email" className="mb-2 block font-medium text-[#2D3142]">Email Address</label>
+                  <label htmlFor="email" className="mb-2 block font-medium text-[#2D3142]">Email Address *</label>
                   <input 
                     type="email" 
                     id="email" 
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
                     className="w-full rounded-md border border-[#BFC0C0]/30 bg-white/80 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#EF8354]/50"
                     placeholder="Enter your email"
                   />
@@ -108,33 +226,52 @@ export default function Contact() {
                   <input 
                     type="tel" 
                     id="phone" 
+                    value={formData.phoneNumber}
+                    onChange={handleInputChange}
                     className="w-full rounded-md border border-[#BFC0C0]/30 bg-white/80 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#EF8354]/50"
                     placeholder="Enter your phone number"
                   />
                 </div>
                 <div className="mb-4">
-                  <label htmlFor="subject" className="mb-2 block font-medium text-[#2D3142]">Subject</label>
+                  <label htmlFor="subject" className="mb-2 block font-medium text-[#2D3142]">Subject *</label>
                   <input 
                     type="text" 
                     id="subject" 
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    required
                     className="w-full rounded-md border border-[#BFC0C0]/30 bg-white/80 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#EF8354]/50"
                     placeholder="Enter subject"
                   />
                 </div>
                 <div className="mb-6">
-                  <label htmlFor="message" className="mb-2 block font-medium text-[#2D3142]">Message</label>
+                  <label htmlFor="message" className="mb-2 block font-medium text-[#2D3142]">Message *</label>
                   <textarea 
                     id="message" 
                     rows={5}
-                    className="w-full rounded-md border border-[#BFC0C0]/30 bg-white/80 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#EF8354]/50"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full rounded-md border border-[#BFC0C0]/30 bg-white/80 px-4 py-2 text-black focus:outline-none focus:ring-2 focus:ring-[#EF8354]/50"
                     placeholder="Enter your message"
                   ></textarea>
                 </div>
                 <button 
                   type="submit"
-                  className="group relative w-full overflow-hidden rounded-md bg-[#EF8354] px-4 py-3 font-medium text-white transition-all duration-300 hover:bg-[#D64C1B] hover:shadow-lg"
+                  disabled={status.isSubmitting}
+                  className="group relative flex w-full items-center justify-center overflow-hidden rounded-md bg-[#EF8354] px-4 py-3 font-medium text-white transition-all duration-300 hover:bg-[#D64C1B] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
                 >
-                  <span className="relative z-10">Send Message</span>
+                  {status.isSubmitting ? (
+                    <>
+                      <svg className="-ml-1 mr-3 size-5 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      <span className="relative z-10">Sending...</span>
+                    </>
+                  ) : (
+                    <span className="relative z-10">Send Message</span>
+                  )}
                   <span className="absolute inset-0 bg-gradient-to-r from-[#D64C1B] to-[#EF8354] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
                 </button>
               </form>
