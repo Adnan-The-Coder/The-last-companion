@@ -39,10 +39,10 @@ export default function Services() {
                   <li>Preparation for Salat al-Janazah (funeral prayer)</li>
                   <li>Respectful handling throughout the entire process</li>
                 </ul>
-                <Link href="/services/janazah-preparation" className="group inline-flex items-center font-medium text-[#EF8354] transition-colors duration-300 hover:text-[#D64C1B]">
+                {/* <Link href="/services/janazah-preparation" className="group inline-flex items-center font-medium text-[#EF8354] transition-colors duration-300 hover:text-[#D64C1B]">
                   <span>Learn More</span>
                   <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </Link>
+                </Link> */}
               </div>
             </div>
             {/* Service 2 */}
@@ -67,10 +67,10 @@ export default function Services() {
                   <li>Comfortable facilities for elderly and those with special needs</li>
                   <li>Coordination with local community centers when needed</li>
                 </ul>
-                <Link href="/services/sitting-arrangements" className="group inline-flex items-center font-medium text-[#EF8354] transition-colors duration-300 hover:text-[#D64C1B]">
+                {/* <Link href="/services/sitting-arrangements" className="group inline-flex items-center font-medium text-[#EF8354] transition-colors duration-300 hover:text-[#D64C1B]">
                   <span>Learn More</span>
                   <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </Link>
+                </Link> */}
               </div>
             </div>
             {/* Service 3 */}
@@ -86,7 +86,7 @@ export default function Services() {
                   <li>Guidance for family during burial process</li>
                   <li>Post-burial support and guidance</li>
                 </ul>
-                <Link href="/services/burial" className="font-medium text-blue-700 hover:text-blue-900">Learn More →</Link>
+                {/* <Link href="/services/burial" className="font-medium text-blue-700 hover:text-blue-900">Learn More →</Link> */}
               </div>
             </div>
             {/* Service 4 */}
@@ -102,7 +102,7 @@ export default function Services() {
                   <li>Long-distance transportation when needed</li>
                   <li>International repatriation services</li>
                 </ul>
-                <Link href="/services/transportation" className="font-medium text-blue-700 hover:text-blue-900">Learn More →</Link>
+                {/* <Link href="/services/transportation" className="font-medium text-blue-700 hover:text-blue-900">Learn More →</Link> */}
               </div>
             </div>
             {/* Service 5 */}
@@ -127,10 +127,10 @@ export default function Services() {
                   <li>Respectful and dignified handling throughout the process</li>
                   <li>Available 24/7 for emergency needs</li>
                 </ul>
-                <Link href="/services/ghusl-service" className="group inline-flex items-center font-medium text-[#EF8354] transition-colors duration-300 hover:text-[#D64C1B]">
+                {/* <Link href="/services/ghusl-service" className="group inline-flex items-center font-medium text-[#EF8354] transition-colors duration-300 hover:text-[#D64C1B]">
                   <span>Learn More</span>
                   <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </Link>
+                </Link> */}
               </div>
             </div>
             {/* Service 6 */}
@@ -146,7 +146,7 @@ export default function Services() {
                   <li>Financial planning for funeral expenses</li>
                   <li>Recording of personal wishes for funeral arrangements</li>
                 </ul>
-                <Link href="/services/pre-planning" className="font-medium text-blue-700 hover:text-blue-900">Learn More →</Link>
+                {/* <Link href="/services/pre-planning" className="font-medium text-blue-700 hover:text-blue-900">Learn More →</Link> */}
               </div>
             </div>
           </div>
