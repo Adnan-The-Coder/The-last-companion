@@ -5,8 +5,14 @@
 import React, { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import { createClient } from '@supabase/supabase-js';
 
 import NearbyGraveyards from '../../components/NearbyGraveyards';
+
+// Initialize Supabase client
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 interface ServiceType {
   id: string;
@@ -30,8 +36,14 @@ const BookingForm = () => {
   const [notes, setNotes] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
-  // Using underscore prefix to indicate intentionally unused variable
   const [selectedGraveyardId] = useState<string | null>(initialGraveyardId);
+  const [bookingId, setBookingId] = useState<string | null>(null);
+  
+  // Status for error handling
+  const [status, setStatus] = useState({
+    isError: false,
+    message: ''
+  });
 
   // Mock data for service types
   const serviceTypes: ServiceType[] = [
@@ -78,12 +90,53 @@ const BookingForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setStatus({ isError: false, message: '' });
     
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      // Get the selected service details
+      const selectedServiceDetails = serviceTypes.find(s => s.id === selectedService);
+      
+      // Prepare booking data for Supabase
+      const bookingData = {
+        customer_name: name,
+        customer_email: email,
+        customer_phone: phone,
+        service_type: selectedService,
+        service_name: selectedServiceDetails?.name || '',
+        service_description: selectedServiceDetails?.description || '',
+        service_price: selectedServiceDetails?.price || '',
+        booking_date: selectedDate,
+        booking_time: selectedTime,
+        graveyard_id: selectedGraveyardId,
+        additional_notes: notes || null,
+        booking_status: 'pending',
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      };
+
+      // Insert booking data into Supabase
+      const { data, error } = await supabase
+        .from('FuneralServiceBookings')
+        .insert([bookingData])
+        .select('id')
+        .single();
+
+      if (error) {
+        throw error;
+      }
+
+      // Store the booking ID for reference
+      setBookingId(data.id);
       setIsSubmitting(false);
       setIsComplete(true);
-    }, 1500);
+    } catch (error) {
+      console.error('Error submitting booking:', error);
+      setIsSubmitting(false);
+      setStatus({
+        isError: true,
+        message: 'Failed to submit booking. Please try again or contact us directly.'
+      });
+    }
   };
 
   const nextStep = () => {
@@ -99,6 +152,12 @@ const BookingForm = () => {
       <div className="container mx-auto max-w-4xl px-4" style={{opacity: 1, transform: 'translateY(0)', transition: 'opacity 0.6s ease, transform 0.6s ease'}}>
         <h1 className="mb-2 text-center font-serif text-4xl font-bold text-[#2D3142]">Book a <span className="text-[#EF8354]">Service</span></h1>
         <p className="mb-8 text-center text-[#4F5D75]">Schedule Islamic funeral services with dignity and respect</p>
+        {/* Error Message Display */}
+        {status.isError && (
+          <div className="mb-6 rounded-lg border border-red-500/20 bg-red-500/10 p-4 text-center">
+            <p className="text-red-600">{status.message}</p>
+          </div>
+        )}
         {!isComplete ? (
           <div className="mb-8 rounded-lg border border-[#BFC0C0]/10 bg-white p-6 shadow-lg transition-shadow duration-300 hover:shadow-xl">
             <div className="mb-8 flex items-center justify-between">
@@ -283,13 +342,14 @@ const BookingForm = () => {
               </div>
               <div className="flex justify-between">
                 <button onClick={prevStep}
-                  className="group relative overflow-hidden rounded-md border border-[#2D3142] bg-white px-6 py-2 font-medium text-[#2D3142] transition-all duration-300 hover:shadow-md">
+                  disabled={isSubmitting}
+                  className="group relative overflow-hidden rounded-md border border-[#2D3142] bg-white px-6 py-2 font-medium text-[#2D3142] transition-all duration-300 hover:shadow-md disabled:opacity-50">
                   <span className="relative z-10">Back</span>
                   <span className="absolute inset-0 bg-[#2D3142]/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
                 </button>
                 <button onClick={handleSubmit}
                   disabled={isSubmitting}
-                  className="group relative flex items-center overflow-hidden rounded-md bg-[#2D3142] px-6 py-2 font-medium text-white transition-all duration-300 hover:bg-[#2D3142]/90 hover:shadow-md">
+                  className="group relative flex items-center overflow-hidden rounded-md bg-[#2D3142] px-6 py-2 font-medium text-white transition-all duration-300 hover:bg-[#2D3142]/90 hover:shadow-md disabled:opacity-50">
                   {isSubmitting ? (
                     <>
                       <svg className="mr-2 size-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -320,9 +380,14 @@ const BookingForm = () => {
               </svg>
             </div>
             <h2 className="mb-2 font-serif text-2xl font-bold text-[#2D3142]">Booking <span className="text-[#EF8354]">Confirmed</span></h2>
-            <p className="mb-6 text-[#4F5D75]">
+            <p className="mb-4 text-[#4F5D75]">
               Thank you for your booking. We have sent a confirmation email to {email} with all the details.
             </p>
+            {bookingId && (
+              <p className="mb-4 text-sm text-[#4F5D75]">
+                Your booking reference ID: <span className="font-mono font-medium text-[#2D3142]">{bookingId}</span>
+              </p>
+            )}
             <p className="mb-6 text-[#4F5D75]">
               Our team will contact you shortly to confirm the details and arrange for payment.
             </p>
