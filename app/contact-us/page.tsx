@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import ContactMap from '@/components/ContactMap';
 
 export default function ContactUsPage() {
   const [name, setName] = useState('');
@@ -268,15 +269,8 @@ export default function ContactUsPage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="overflow-hidden rounded-lg bg-white shadow-xl"
           >
-            {/* This would be replaced with an actual map component in production */}
-            <div className="relative flex h-40 items-center justify-center bg-gradient-to-r from-[#EF8354] to-[#EF8354]/80">
-              <div className="mb-12 text-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto mb-4 size-16 text-[#4F5D75]/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                </svg>
-                <p className="text-[#4F5D75]">Interactive Map Would Be Displayed Here</p>
-              </div>
-            </div>
+            {/* Interactive Map showing all graveyard locations */}
+            <ContactMap />
           </motion.div>
         </div>
       </section>

@@ -5,10 +5,9 @@ import Script from 'next/script';
 import { createClient } from '@supabase/supabase-js';
 
 // Initialize Supabase client
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://xyzcompaniondb.supabase.co';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh5emNvbXBhbmlvbmRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE2MjA0NjQ2MjAsImV4cCI6MTkzNjA0MDYyMH0.examplekey';
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export default function FundraiserPage() {
   const [donationAmount, setDonationAmount] = useState<number>(100);
@@ -115,7 +114,7 @@ export default function FundraiserPage() {
       
       // Setup Razorpay payment
       const PaymentData = {
-        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || process.env.RAZORPAY_LIVE_KEY_ID,
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || 'rzp_test_lastcompanion123',
         amount: donationAmount * 100,
         currency: "INR",
         name: "Community Fundraiser",

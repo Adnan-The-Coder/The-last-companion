@@ -4,6 +4,7 @@ import { Montserrat, Cormorant_Garamond, Amiri } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import LocationPermissionProvider from "@/components/LocationPermissionProvider";
 
 const montserrat = Montserrat({
   weight: ["300", "400", "500", "600", "700"],
@@ -41,11 +42,13 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${cormorant.variable} ${amiri.variable} antialiased`}
       >
-        <Header />
-        <main>
-          {children}
-        </main>
-        <Footer />
+        <LocationPermissionProvider>
+          <Header />
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </LocationPermissionProvider>
       </body>
     </html>
   );
