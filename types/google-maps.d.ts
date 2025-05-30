@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
+/* eslint-disable no-unused-vars */
 // Type definitions for Google Maps JavaScript API
 declare namespace google {
   namespace maps {

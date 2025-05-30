@@ -247,7 +247,6 @@ const BookingForm = () => {
                     ))}
                   </select>
                 </div>
-                
                 <h3 className="mb-4 mt-8 text-xl font-semibold text-[#2D3142]">Select a Service</h3>
                 <div className="mb-6 grid gap-4 md:grid-cols-2">
                   {serviceTypes.map((service) => (

@@ -154,7 +154,7 @@ export default function FundraiserPage() {
 
               // Show success message
               alert(`Thank you ${isAnonymous ? '' : name}! Your donation of ₹${donationAmount} has been received successfully. May Allah reward you for your generosity.`);
-              
+
               // Reset form
               setDonationAmount(100);
               setName('');
@@ -297,7 +297,7 @@ export default function FundraiserPage() {
                         value={donationAmount}
                         onChange={handleDonationAmountChange}
                         className="w-full rounded-md border border-[#4F5D75]/30 p-3 text-black focus:border-[#EF8354] focus:outline-none focus:ring-1 focus:ring-[#EF8354]"
-                        min="10"
+                        min="1"
                       />
                     </div>
                   </div>

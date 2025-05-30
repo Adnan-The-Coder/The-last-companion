@@ -103,7 +103,6 @@ export async function POST(request: Request) {
     
     // Validate input
     if (typeof latitude !== 'number' || typeof longitude !== 'number') {
-      
       return NextResponse.json(
         { error: 'Invalid coordinates. Latitude and longitude must be numbers.' },
         { status: 400 }
@@ -130,6 +129,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ graveyards: nearbyGraveyards });
   } catch (error) {
     console.error('Error processing nearby graveyards request:', error);
+
     return NextResponse.json(
       { error: 'Failed to process request' },
       { status: 500 }
@@ -146,10 +146,10 @@ export async function PUT(request: Request) {
     console.log(`User ${userId} set location permission to: ${permissionStatus}`);
     
     // For demonstration purposes, we're just returning success
-    
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Error logging permission status:', error);
+
     return NextResponse.json(
       { error: 'Failed to log permission status' },
       { status: 500 }
