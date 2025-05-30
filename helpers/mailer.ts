@@ -15,6 +15,21 @@ type EmailData = {
     amount?: number;
     transactionId?: string;
     orderId?: string;
+
+    customer_name?: string;
+    customer_phone?: string;
+    deceased_name?: string;
+    service_type?: string;
+    service_name?: string;
+    service_description?: string;
+    service_price?: string;
+    booking_date?: string;
+    booking_time?: string;
+    graveyard_name?: string;
+    graveyard_address?: string;
+    additional_notes?: string;
+    booking_status?: string;
+    created_at?: string;
   };
 };
 
@@ -32,11 +47,25 @@ export const sendEmail = async ({ email, emailType, username = "user", data }: E
       case 'SERVICE_BOOKING':
         emailSubject = "Booking Confirmation - The Last Companion";
         emailHtml = EMAIL_TEMPLATES.SERVICE_BOOKING
-          .replace("{user}", username)
-          .replace("{serviceName}", data?.serviceName || '')
-          .replace("{date}", data?.date || '')
-          .replace("{time}", data?.time || '')
-          .replace("{location}", data?.location || '');
+            .replace("{customer_name}", data?.customer_name || 'Valued Customer')
+            .replace("{customer_phone}", data?.customer_phone || '')
+            .replace("{customer_email}", email)
+            .replace("{deceased_name}", data?.deceased_name || '')
+            .replace("{service_type}", data?.service_type || '')
+            .replace("{service_name}", data?.service_name || '')
+            .replace("{service_description}", data?.service_description || '')
+            .replace("{service_price}", data?.service_price || '')
+            .replace("{booking_date}", data?.booking_date || '')
+            .replace("{booking_time}", data?.booking_time || '')
+            .replace("{graveyard_name}", data?.graveyard_name || '')
+            .replace("{graveyard_address}", data?.graveyard_address || '')
+            .replace("{booking_status}", data?.booking_status || 'Pending')
+            .replace("{created_at}", data?.created_at || new Date().toISOString())
+            .replace("{additional_notes_section}", data?.additional_notes ? 
+            `<div style="background-color: #F5F5F7; padding: 20px; margin: 20px 0; border-radius: 8px;">
+                <h3 style="color: #EF8354; margin-top: 0;">Additional Notes:</h3>
+                <p>${data.additional_notes}</p>
+            </div>` : '');
         break;
 
       case 'FUNDRAISER_CONFIRMATION':

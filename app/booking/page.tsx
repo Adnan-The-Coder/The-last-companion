@@ -164,7 +164,6 @@ const BookingForm = () => {
         additional_notes: notes || null,
         booking_status: 'pending',
         created_at: new Date().toISOString(),
-        // updated_at: new Date().toISOString()
       };
 
       // Insert booking data into Supabase
@@ -176,6 +175,19 @@ const BookingForm = () => {
 
       if (error) {
         throw error;
+      }
+
+      // Send confirmation email
+      const emailResponse = await fetch('/api/mail-sender', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bookingData),
+      });
+
+      if (!emailResponse.ok) {
+        console.error('Failed to send confirmation email');
       }
 
       // Store the booking ID for reference
