@@ -91,7 +91,7 @@ export const sendEmail = async ({ email, emailType, username = "user", data }: E
     });
 
     const mailOptions = {
-      from: '"The Last Companion" <hello@lastcompanion.com>',
+      from: '"The Last Companion" <hello@hobbymaster.xyz>',
       to: email,
       subject: emailSubject,
       html: emailHtml,
