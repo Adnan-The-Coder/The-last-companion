@@ -164,7 +164,7 @@ const BookingForm = () => {
         additional_notes: notes || null,
         booking_status: 'pending',
         created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString()
+        // updated_at: new Date().toISOString()
       };
 
       // Insert booking data into Supabase
