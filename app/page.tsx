@@ -189,102 +189,12 @@ export default function Home() {
           </Link>
         </div>
       </section>
-      {/* Testimonials */}
-      <section className="bg-slate-900 py-16 text-white">
-        <div className="container mx-auto px-4">
-          <div className="animate-fade-in mb-16 text-center">
-            <h2 className="mb-4 font-serif text-4xl font-bold text-white md:text-5xl">What Families Say</h2>
-            <div className="mx-auto mb-6 h-1 w-24 rounded bg-blue-500"></div>
-            <p className="mx-auto max-w-2xl text-lg text-gray-300">Hear from the families we've had the honor of serving during their time of need.</p>
-          </div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {/* Testimonial 1 */}
-            <div className="animate-fade-in rounded-lg border-t-4 border-blue-400 bg-slate-800 p-6 shadow-md" style={{animationDelay: '100ms'}}>
-              <div className="mb-4 flex items-center">
-                <div className="relative mr-4">
-                  <Image 
-                    src="/images/team-1.jpg" 
-                    alt="Ahmed Family" 
-                    width={60} 
-                    height={60} 
-                    className="rounded-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h3 className="font-bold text-white">Ahmed Family</h3>
-                  <p className="text-sm text-indigo-300">New York</p>
-                </div>
-              </div>
-              <p className="mb-4 text-gray-300">"The Last Companion provided exceptional service during our difficult time. Their attention to Islamic traditions and compassionate approach was truly comforting."</p>
-              <div className="flex text-indigo-300">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} xmlns="http://www.w3.org/2000/svg" className="size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-            </div>
-            {/* Testimonial 2 */}
-            <div className="animate-fade-in rounded-lg border-t-4 border-blue-400 bg-slate-800 p-6 shadow-md" style={{animationDelay: '200ms'}}>
-              <div className="mb-4 flex items-center">
-                <div className="relative mr-4">
-                  <Image 
-                    src="/images/team-2.jpg" 
-                    alt="Rahman Family" 
-                    width={60} 
-                    height={60} 
-                    className="rounded-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h3 className="font-bold text-white">Rahman Family</h3>
-                  <p className="text-sm text-indigo-300">Michigan</p>
-                </div>
-              </div>
-              <p className="mb-4 text-gray-300">"We are deeply grateful for the dignified and respectful service provided for our beloved mother. The team's knowledge of Islamic funeral practices gave us peace of mind."</p>
-              <div className="flex text-indigo-300">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} xmlns="http://www.w3.org/2000/svg" className="size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-            </div>
-            {/* Testimonial 3 */}
-            <div className="animate-fade-in rounded-lg border-t-4 border-blue-400 bg-slate-800 p-6 shadow-md" style={{animationDelay: '300ms'}}>
-              <div className="mb-4 flex items-center">
-                <div className="relative mr-4">
-                  <Image 
-                    src="/images/team-3.jpg" 
-                    alt="Malik Family" 
-                    width={60} 
-                    height={60} 
-                    className="rounded-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h3 className="font-bold text-white">Malik Family</h3>
-                  <p className="text-sm text-indigo-300">Connecticut</p>
-                </div>
-              </div>
-              <p className="mb-4 text-gray-300">"The 24/7 availability and professional service from The Last Companion was a blessing for our family. They handled everything with the utmost respect."</p>
-              <div className="flex text-indigo-300">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} xmlns="http://www.w3.org/2000/svg" className="size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       {/* FAQ Section */}
       <section className="relative overflow-hidden bg-[#2D3142]/5 py-16">
         <div className="absolute inset-0 bg-[url('/images/pattern-bg.jpg')] bg-cover bg-center opacity-5"></div>
         <div className="container relative z-10 mx-auto px-4">
           <div className="mb-12 text-center" style={{opacity: 1, transform: 'translateY(0)', transition: 'opacity 0.8s ease, transform 0.8s ease'}}>
-            <h2 className="relative mb-4 inline-block font-serif text-3xl font-bold text-[#2D3142]">
+            <h2 className="relative mb-4 inline-block font-serif text-3xl font-bold text-white">
               Frequently Asked Questions
               <span className="absolute inset-x-1/4 -bottom-2 h-0.5 rounded-full bg-[#EF8354]/70"></span>
             </h2>
