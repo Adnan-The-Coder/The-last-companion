@@ -182,7 +182,7 @@ export default function Home() {
           <h2 className="mb-8 font-serif text-3xl font-bold md:text-4xl">We're Here For You <span className="text-gold-300">24/7</span></h2>
           <p className="mx-auto mb-8 max-w-2xl text-xl">Contact us anytime, day or night. Our compassionate team is ready to assist you in your time of need.</p>
           <Link href="/contact" className="bg-sage-100 inline-block rounded-md px-8 py-4 text-lg font-medium text-gold-800 transition-colors hover:bg-white">
-            Call Now: +1-234-567-8900
+            Call Now: +91 9618316290
           </Link>
           <Link href="/contact" className="inline-block rounded-md border border-white px-6 py-3 font-medium text-white transition-colors hover:bg-blue-800">
             Contact Us
