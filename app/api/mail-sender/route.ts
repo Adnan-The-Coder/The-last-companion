@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import { NextRequest, NextResponse } from 'next/server';
 
 import { sendEmail } from '@/helpers/mailer';
