@@ -23,10 +23,15 @@ export async function POST(request: Request) {
       return NextResponse.json({
         success: false,
         message: "Payment verification failed"
-      }, { status: 400 });
+      }, {
+        status: 400,
+        headers: {
+          'Access-Control-Allow-Origin': 'https://the-last-companion.vercel.app/',
+          'Access-Control-Allow-Headers': 'Content-Type',
+        }
+      });
     }
 
-    // ✅ Send confirmation email
     await sendEmail({
       email,
       emailType: 'FUNDRAISER_CONFIRMATION',
@@ -42,6 +47,11 @@ export async function POST(request: Request) {
     return NextResponse.json({
       success: true,
       message: "Payment verified and email sent"
+    }, {
+      headers: {
+        'Access-Control-Allow-Origin': 'https://the-last-companion.vercel.app/',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      }
     });
   } catch (error: any) {
     console.error("Error verifying payment:", error);
@@ -50,6 +60,12 @@ export async function POST(request: Request) {
       success: false,
       message: "Server error during payment verification",
       error: error.message
-    }, { status: 500 });
+    }, {
+      status: 500,
+      headers: {
+        'Access-Control-Allow-Origin': 'https://the-last-companion.vercel.app/',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      }
+    });
   }
 }
