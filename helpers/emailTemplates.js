@@ -2,7 +2,7 @@ export const EMAIL_TEMPLATES = {
   WELCOME: `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #2D3142;">
       <div style="text-align: center; margin-bottom: 30px;">
-        <img src="img_url_to_be_added" alt="The Last Companion" style="max-width: 200px;">
+        <img src="https://www.lastcompanion.shop/assets/email-logo.png" alt="The Last Companion" style="max-width: 200px;">
       </div>
       <h2 style="color: #2D3142; margin-bottom: 20px;">Welcome to The Last Companion</h2>
       <p>Assalamu Alaikum {user},</p>
@@ -17,7 +17,7 @@ export const EMAIL_TEMPLATES = {
  SERVICE_BOOKING: `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #2D3142;">
       <div style="text-align: center; margin-bottom: 30px;">
-        <img src="img_url_to_be_added" alt="The Last Companion" style="max-width: 200px;">
+        <img src="https://www.lastcompanion.shop/assets/email-logo.png" alt="The Last Companion" style="max-width: 200px;">
       </div>
       <h2 style="color: #2D3142; margin-bottom: 20px;">Booking Confirmation</h2>
       <p>Assalamu Alaikum {customer_name},</p>
@@ -66,7 +66,7 @@ export const EMAIL_TEMPLATES = {
   FUNDRAISER_CONFIRMATION: `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #2D3142;">
       <div style="text-align: center; margin-bottom: 30px;">
-        <img src="img_url_to_be_added" alt="The Last Companion" style="max-width: 200px;">
+        <img src="https://www.lastcompanion.shop/assets/email-logo.png" alt="The Last Companion" style="max-width: 200px;">
       </div>
       <h2 style="color: #2D3142; margin-bottom: 20px;">Thank You for Your Contribution</h2>
       <p>Assalamu Alaikum {user},</p>
