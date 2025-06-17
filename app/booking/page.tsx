@@ -101,31 +101,31 @@ const BookingForm = () => {
       id: 'ghusl',
       name: 'Ghusl Service',
       description: 'Complete Islamic ritual washing and shrouding (kafan) of the deceased.',
-      price: '$400'
+      price: '₹2450'
     },
     {
       id: 'sitting',
       name: 'Sitting Arrangements Service',
       description: 'Arrangements for mourners including seating, water, and basic facilities.',
-      price: '$300'
+      price: '₹6000'
     },
     {
       id: 'burial',
       name: 'Islamic Burial Service',
       description: 'Full burial service following Islamic traditions and customs.',
-      price: '$1,200'
+      price: '₹18K-100K'
     },
     {
       id: 'transport',
       name: 'Body Transportation',
       description: 'Respectful transportation of the deceased to the burial site.',
-      price: '$300'
+      price: '₹1000-5000'
     },
     {
       id: 'complete',
       name: 'Complete Funeral Package',
       description: 'All-inclusive package with ghusl, sitting arrangements, burial, and transportation services.',
-      price: '$2,000'
+      price: '₹60K-100K'
     }
   ];
 
