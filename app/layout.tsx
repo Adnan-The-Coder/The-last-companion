@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     siteName: "The Last Companion - Islamic Funeral Services",
     images: [
       {
-        url: "/assets/islamic-funeral-services-og.jpg",
+        url: "/assets/email-logo.png",
         width: 1200,
         height: 630,
         alt: "The Last Companion - Islamic Funeral Services",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The Last Companion | Islamic Funeral Services",
     description: "Compassionate Islamic funeral services with 24/7 support. Professional Islamic burial preparation and janazah arrangements following authentic Islamic traditions.",
-    images: ["/assets/islamic-funeral-services-twitter.jpg"],
+    images: ["/assets/email-logo.png"],
     creator: "@LastCompanionServices",
   },
   robots: {
