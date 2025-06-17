@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Last Companion | Islamic Funeral Services - Dignified Islamic Burial Rites",
     description: "Professional Islamic funeral services with 24/7 support. Authentic ghusl preparation, kafan shrouding, janazah arrangements, and Islamic burial services following Sunnah traditions.",
-    url: "https://thelastcompanion.com",
+    url: "https://www.lastcompanion.shop",
     siteName: "The Last Companion - Islamic Funeral Services",
     images: [
       {
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://thelastcompanion.com",
+    canonical: "https://www.lastcompanion.shop",
   },
   category: "funeral services",
   other: {
@@ -116,9 +116,9 @@ export default function RootLayout({
             "@type": "FuneralHome",
             name: "The Last Companion",
             description: "Professional Islamic funeral services providing dignified Islamic burial rites, janazah arrangements, and comprehensive bereavement support following authentic Islamic traditions.",
-            url: "https://thelastcompanion.com",
-            logo: "https://thelastcompanion.com/assets/logo.png",
-            image: "https://thelastcompanion.com/assets/islamic-funeral-services.jpg",
+            url: "https://www.lastcompanion.shop",
+            logo: "https://www.lastcompanion.shop/assets/logo.png",
+            image: "https://www.lastcompanion.shop/assets/email-logo.png",
             telephone: "+91-XXXX-XXXXXX",
             email: "info@thelastcompanion.com",
             address: {
@@ -178,7 +178,7 @@ export default function RootLayout({
                 }
               ]
             },
-            founder: {
+            developer: {
               "@type": "Person",
               name: "Syed Adnan Ali",
               sameAs: "https://www.linkedin.com/in/syedadnanali99"
@@ -239,11 +239,11 @@ export default function RootLayout({
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "@id": "https://thelastcompanion.com/#organization",
+            "@id": "https://www.lastcompanion.shop/#organization",
             name: "The Last Companion",
             alternateName: "Islamic Funeral Services Hyderabad",
             description: "Leading Islamic funeral services provider in Hyderabad offering authentic Islamic burial rites, janazah arrangements, and 24/7 emergency support.",
-            url: "https://thelastcompanion.com",
+            url: "https://www.lastcompanion.shop",
             telephone: "+91-XXXX-XXXXXX",
             email: "info@thelastcompanion.com",
             address: {
@@ -281,19 +281,19 @@ export default function RootLayout({
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "@id": "https://thelastcompanion.com/#website",
-            url: "https://thelastcompanion.com",
+            "@id": "https://www.lastcompanion.shop/#website",
+            url: "https://www.lastcompanion.shop",
             name: "The Last Companion - Islamic Funeral Services",
             description: "Professional Islamic funeral services with authentic burial rites, janazah arrangements, and compassionate support following Islamic traditions.",
             publisher: {
-              "@id": "https://thelastcompanion.com/#organization"
+              "@id": "https://www.lastcompanion.shop/#organization"
             },
             potentialAction: [
               {
                 "@type": "SearchAction",
                 target: {
                   "@type": "EntryPoint",
-                  urlTemplate: "https://thelastcompanion.com/search?q={search_term_string}"
+                  urlTemplate: "https://www.lastcompanion.shop/search?q={search_term_string}"
                 },
                 "query-input": "required name=search_term_string"
               }
