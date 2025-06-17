@@ -4,7 +4,7 @@
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 
-import { AnimatedTooltip } from './ui/animated-tooltip';
+// import { AnimatedTooltip } from './ui/animated-tooltip';
 
 // import { AnimatedTooltip } from "../ui/animated-tooltip";
 
@@ -15,22 +15,22 @@ const Footer = () => {
     setIsLoaded(true);
   }, []);
   
-  const people = [
-  {
-    id: 1,
-    name: "Syed Adnan Ali",
-    designation: "Backend Developer",
-    image:
-      "/AdnanIm-1.jpg",
-  },
-  {
-    id: 2,
-    name: "Arshil Ali Abbas",
-    designation: "Frontend Developer",
-    image:
-      "/Arshil.jpg",
-  },
-  ]
+  // const people = [
+  // {
+  //   id: 1,
+  //   name: "Syed Adnan Ali",
+  //   designation: "Backend Developer",
+  //   image:
+  //     "/AdnanIm-1.jpg",
+  // },
+  // {
+  //   id: 2,
+  //   name: "Arshil Ali Abbas",
+  //   designation: "Frontend Developer",
+  //   image:
+  //     "/Arshil.jpg",
+  // },
+  // ]
 
   return (
     <footer className="bg-[#2D3142] text-white">
@@ -241,12 +241,6 @@ const Footer = () => {
               <p className="text-[#4F5D75]">&copy; {new Date().getFullYear()} <span className="text-[#EF8354]">The Last Companion</span>. All rights reserved.</p>
             </div>
             {/* Developer Credits with AnimatedTooltip */}
-            <div className="flex flex-col items-center space-y-2">
-              <p className="text-sm text-[#4F5D75]">Developed with ❤️ by</p>
-              <div className="flex justify-center">
-                <AnimatedTooltip items={people} />
-              </div>
-            </div>
           </div>
         </div>
       </div>
