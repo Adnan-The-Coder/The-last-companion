@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import YouTube from 'react-youtube';
-import { FaPlay, FaBook, FaQuestionCircle, FaVideo } from 'react-icons/fa';
+import { FaBook, FaQuestionCircle, FaVideo } from 'react-icons/fa';
 
 export default function ResourcesPage() {
   const opts = {
@@ -20,7 +20,7 @@ export default function ResourcesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-[#F5F5F7] overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden bg-gradient-to-b from-white to-[#F5F5F7]">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-[#2D3142] text-white">
         <div className="absolute inset-0 bg-[url('/images/pattern-light.png')] opacity-10"></div>
@@ -143,7 +143,6 @@ export default function ResourcesPage() {
               </div>
             </div>
           </motion.div>
-
           {/* FAQ */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
