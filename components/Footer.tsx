@@ -1,249 +1,461 @@
+ 
 /* eslint-disable tailwindcss/migration-from-tailwind-2 */
 'use client';
 
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
-
-// import { AnimatedTooltip } from './ui/animated-tooltip';
-
-// import { AnimatedTooltip } from "../ui/animated-tooltip";
+import { 
+  FaFacebookF, 
+  FaTwitter, 
+  FaInstagram,
+  FaArrowRight,
+  FaYoutube,
+  FaLinkedinIn,
+  FaWhatsapp,
+  FaHeart,
+  FaStar,
+  FaCheckCircle
+} from 'react-icons/fa';
+import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from 'react-icons/hi';
+import { BiRightArrowAlt } from 'react-icons/bi';
+import { MdSecurity, MdSupport, MdVerified } from 'react-icons/md';
 
 const Footer = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [subscriptionSuccess, setSubscriptionSuccess] = useState(false);
+  const [currentTime, setCurrentTime] = useState(new Date());
   
   useEffect(() => {
     setIsLoaded(true);
+    
+    // Update time every minute for prayer times context
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 60000);
+    
+    return () => clearInterval(timer);
   }, []);
-  
-  // const people = [
-  // {
-  //   id: 1,
-  //   name: "Syed Adnan Ali",
-  //   designation: "Backend Developer",
-  //   image:
-  //     "/AdnanIm-1.jpg",
-  // },
-  // {
-  //   id: 2,
-  //   name: "Arshil Ali Abbas",
-  //   designation: "Frontend Developer",
-  //   image:
-  //     "/Arshil.jpg",
-  // },
-  // ]
+
+  const handleNewsletterSubmit = async (e:any) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    setEmail('');
+    setIsSubmitting(false);
+    setSubscriptionSuccess(true);
+    
+    // Reset success message after 3 seconds
+    setTimeout(() => setSubscriptionSuccess(false), 3000);
+  };
+
+  const socialLinks = [
+    { icon: FaFacebookF, href: '#', label: 'Facebook', color: 'hover:text-blue-400', bg: 'hover:bg-blue-400/10' },
+    { icon: FaTwitter, href: '#', label: 'Twitter', color: 'hover:text-blue-300', bg: 'hover:bg-blue-300/10' },
+    { icon: FaInstagram, href: '#', label: 'Instagram', color: 'hover:text-pink-400', bg: 'hover:bg-pink-400/10' },
+    { icon: FaYoutube, href: '#', label: 'YouTube', color: 'hover:text-red-500', bg: 'hover:bg-red-500/10' },
+    { icon: FaLinkedinIn, href: '#', label: 'LinkedIn', color: 'hover:text-blue-500', bg: 'hover:bg-blue-500/10' },
+    { icon: FaWhatsapp, href: '#', label: 'WhatsApp', color: 'hover:text-green-400', bg: 'hover:bg-green-400/10' }
+  ];
+
+  const quickLinks = [
+    { name: 'Home', href: '/', icon: '🏠' },
+    { name: 'Our Services', href: '/services', icon: '🕌' },
+    { name: 'About Us', href: '/about', icon: '👥' },
+    { name: 'Resources', href: '/resources', icon: '📚' },
+    { name: 'Contact Us', href: '/contact', icon: '📞' },
+    { name: 'Blog', href: '/blog', icon: '✍️' }
+  ];
+
+  const legalLinks = [
+    { name: 'Terms & Conditions', href: '/Terms-conditions' },
+    { name: 'Privacy Policy', href: '/Privacy-Policy' },
+    { name: 'Shipping & Delivery', href: '/Shipping-Delivery' },
+    { name: 'Cancellation & Refund', href: '/Cancellation-Refund' },
+    { name: 'FAQ', href: '/faq' },
+    { name: 'Support', href: '/support' }
+  ];
+
+  const trustBadges = [
+    { icon: MdSecurity, text: 'Secure & Confidential', color: 'text-green-400' },
+    { icon: MdSupport, text: '24/7 Support', color: 'text-blue-400' },
+    { icon: MdVerified, text: 'Licensed & Certified', color: 'text-purple-400' }
+  ];
 
   return (
-    <footer className="bg-[#2D3142] text-white">
-      {/* Arabic Quote Banner */}
-      <div className="relative overflow-hidden bg-[#1A1D2A] py-8">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#EF8354]/5 to-transparent opacity-50"></div>
-        <div className="container relative z-10 mx-auto px-4 text-center">
-          <div 
-            className="relative mb-6 inline-block"
-            style={{opacity: isLoaded ? 1 : 0, transform: isLoaded ? 'translateY(0)' : 'translateY(20px)', transition: 'opacity 0.8s ease, transform 0.8s ease'}}
-          >
-            <span className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#EF8354]/20 to-transparent blur-md"></span>
-            <p className="arabic-quote relative mb-2 text-2xl text-[#EF8354] sm:text-3xl">
-              إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ
-            </p>
-          </div>
-          <p 
-            className="mx-auto max-w-2xl text-lg italic text-[#BFC0C0] sm:text-xl"
-            style={{opacity: isLoaded ? 1 : 0, transform: isLoaded ? 'translateY(0)' : 'translateY(20px)', transition: 'opacity 1s ease, transform 1s ease'}}
-          >
-            "Indeed we belong to Allah, and indeed to Him we will return."
-          </p>
-          <p 
-            className="mt-2 text-xs text-[#4F5D75] sm:text-sm"
-            style={{opacity: isLoaded ? 1 : 0, transform: isLoaded ? 'translateY(0)' : 'translateY(20px)', transition: 'opacity 1.2s ease, transform 1.2s ease'}}
-          >
-            — Surah Al-Baqarah [2:156]
-          </p>
+    <footer className="relative overflow-x-hidden bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 text-white">
+      {/* Enhanced Background Elements */}
+      <div className="absolute inset-0">
+        {/* Geometric Pattern */}
+        <div className="absolute inset-0 opacity-[0.03]">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23EF8354' fill-opacity='0.8'%3E%3Cpath d='M40 40c13.807 0 25-11.193 25-25S53.807-10 40-10 15 1.193 15 15s11.193 25 25 25zM40 40c13.807 0 25-11.193 25-25S53.807-10 40-10 15 1.193 15 15s11.193 25 25 25z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}
+          />
+        </div>
+        {/* Animated Gradient Overlay */}
+        <div className="absolute inset-0 animate-pulse bg-gradient-to-t from-amber-500/5 via-transparent to-orange-500/5" style={{ animationDuration: '4s' }}></div>
+        {/* Floating Particles */}
+        <div className="absolute inset-0">
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute size-1 rounded-full bg-amber-400/20"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animation: `float ${3 + Math.random() * 4}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 5}s`
+              }}
+            />
+          ))}
         </div>
       </div>
-      <div className="container mx-auto px-4 py-8 sm:py-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {/* About Section */}
+      {/* Enhanced Arabic Quote Banner */}
+      <div className="relative border-b border-amber-500/10 py-12 md:py-16">
+        <div className="container mx-auto px-4 text-center">
           <div 
-            className="space-y-4"
-            style={{opacity: isLoaded ? 1 : 0, transform: isLoaded ? 'translateY(0)' : 'translateY(20px)', transition: 'opacity 0.5s ease, transform 0.5s ease'}}
+            className="inline-block max-w-full w-full"
+            style={{
+              opacity: isLoaded ? 1 : 0,
+              transform: isLoaded ? 'translateY(0)' : 'translateY(30px)',
+              transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
+            }}
           >
-            <h3 className="relative inline-block font-serif text-xl font-bold text-[#EF8354]">
-              About Us
-              <span className="absolute -bottom-1 left-0 h-0.5 w-1/2 rounded-full bg-[#EF8354]/50"></span>
-            </h3>
-            <p className="text-[#BFC0C0]">Providing compassionate Islamic funeral services with dignity and respect, following proper Islamic traditions and practices.</p>
-            <div className="mt-4 flex space-x-4">
-              <Link href="#" className="group relative rounded-full bg-[#4F5D75]/20 p-2 transition-colors duration-300 hover:bg-[#4F5D75]/30">
-                <span className="absolute inset-0 rounded-full bg-[#EF8354]/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
-                <svg xmlns="http://www.w3.org/2000/svg" className="size-5 text-[#BFC0C0] transition-colors duration-300 group-hover:text-[#EF8354]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
-                </svg>
-              </Link>
-              <Link href="#" className="group relative rounded-full bg-[#4F5D75]/20 p-2 transition-colors duration-300 hover:bg-[#4F5D75]/30">
-                <span className="absolute inset-0 rounded-full bg-[#EF8354]/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
-                <svg xmlns="http://www.w3.org/2000/svg" className="size-5 text-[#BFC0C0] transition-colors duration-300 group-hover:text-[#EF8354]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                </svg>
-              </Link>
-              <Link href="#" className="group relative rounded-full bg-[#4F5D75]/20 p-2 transition-colors duration-300 hover:bg-[#4F5D75]/30">
-                <span className="absolute inset-0 rounded-full bg-[#EF8354]/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
-                <svg xmlns="http://www.w3.org/2000/svg" className="size-5 text-[#BFC0C0] transition-colors duration-300 group-hover:text-[#EF8354]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.979 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.979-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                </svg>
-              </Link>
+            <div className="relative rounded-2xl border border-amber-500/20 bg-gradient-to-br from-gray-800/90 to-gray-900/90 px-6 py-8 shadow-2xl backdrop-blur-xl md:px-12 md:py-10">
+              {/* Decorative Corner Elements */}
+              <div className="absolute left-4 top-4 size-8 border-l-2 border-t-2 border-amber-400/30"></div>
+              <div className="absolute right-4 top-4 size-8 border-r-2 border-t-2 border-amber-400/30"></div>
+              <div className="absolute bottom-4 left-4 size-8 border-b-2 border-l-2 border-amber-400/30"></div>
+              <div className="absolute bottom-4 right-4 size-8 border-b-2 border-r-2 border-amber-400/30"></div>
+              {/* Arabic Text with Enhanced Typography */}
+              <div className="relative">
+                <p className="mb-6 text-xl font-bold leading-relaxed text-amber-400" 
+                   style={{ fontFamily: 'serif', direction: 'rtl' }}>
+                  إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ
+                </p>
+                {/* Enhanced Divider */}
+                <div className="my-6 flex items-center justify-center">
+                  <div className="h-px w-32 bg-gradient-to-r from-transparent via-amber-500/50 to-transparent"></div>
+                  <div className="mx-4 size-2 rounded-full bg-amber-400"></div>
+                  <div className="h-px w-32 bg-gradient-to-r from-transparent via-amber-500/50 to-transparent"></div>
+                </div>
+                {/* English Translation */}
+                <p className="mb-4 text-base font-light italic leading-relaxed text-gray-200 md:text-lg lg:text-xl">
+                  "Indeed we belong to Allah, and indeed to Him we will return."
+                </p>
+                {/* Source with styling */}
+                <div className="flex items-center justify-center space-x-2 text-amber-300/80">
+                  <FaStar className="size-3" />
+                  <p className="text-sm font-medium md:text-base">
+                    Surah Al-Baqarah [2:156]
+                  </p>
+                  <FaStar className="size-3" />
+                </div>
+              </div>
             </div>
           </div>
-          {/* Quick Links */}
-          <div 
-            className="space-y-4"
-            style={{opacity: isLoaded ? 1 : 0, transform: isLoaded ? 'translateY(0)' : 'translateY(20px)', transition: 'opacity 0.7s ease, transform 0.7s ease'}}
-          >
-            <h3 className="relative inline-block font-serif text-xl font-bold text-[#EF8354]">
-              Quick Links
-              <span className="absolute -bottom-1 left-0 h-0.5 w-1/2 rounded-full bg-[#EF8354]/50"></span>
-            </h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/" className="flex items-center text-[#BFC0C0] transition-colors duration-300 hover:text-[#EF8354]">
-                  <span className="mr-2 text-xs text-[#EF8354]">→</span>
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="flex items-center text-[#BFC0C0] transition-colors duration-300 hover:text-[#EF8354]">
-                  <span className="mr-2 text-xs text-[#EF8354]">→</span>
-                  Our Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="flex items-center text-[#BFC0C0] transition-colors duration-300 hover:text-[#EF8354]">
-                  <span className="mr-2 text-xs text-[#EF8354]">→</span>
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/resources" className="flex items-center text-[#BFC0C0] transition-colors duration-300 hover:text-[#EF8354]">
-                  <span className="mr-2 text-xs text-[#EF8354]">→</span>
-                  Resources
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="flex items-center text-[#BFC0C0] transition-colors duration-300 hover:text-[#EF8354]">
-                  <span className="mr-2 text-xs text-[#EF8354]">→</span>
-                  Contact Us
-                </Link>
-              </li>
-            </ul>
-          </div>
-          {/* Contact Info */}
-          <div 
-            className="space-y-4"
-            style={{opacity: isLoaded ? 1 : 0, transform: isLoaded ? 'translateY(0)' : 'translateY(20px)', transition: 'opacity 0.9s ease, transform 0.9s ease'}}
-          >
-            <h3 className="relative inline-block font-serif text-xl font-bold text-[#EF8354]">
-              Contact Us
-              <span className="absolute -bottom-1 left-0 h-0.5 w-1/2 rounded-full bg-[#EF8354]/50"></span>
-            </h3>
-            <ul className="space-y-3">
-              <li className="flex items-start">
-                <span className="mr-3 mt-1 inline-flex items-center justify-center rounded-full bg-[#4F5D75]/20 p-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="size-4 text-[#EF8354]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </span>
-                <span className="text-[#BFC0C0]">
-                  7-13/Plot no120 Alkapur<br />
-                  500089<br />
-                  Hyderabad, India
-                </span>
-              </li>
-              <li className="flex items-center">
-                <span className="mr-3 inline-flex items-center justify-center rounded-full bg-[#4F5D75]/20 p-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="size-4 text-[#EF8354]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                </span>
-                <Link href="tel:+919618316290" className="text-[#BFC0C0] transition-colors duration-300 hover:text-[#EF8354]">+91 9618316290</Link>
-              </li>
-              <li className="flex items-center">
-                <span className="mr-3 inline-flex items-center justify-center rounded-full bg-[#4F5D75]/20 p-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="size-4 text-[#EF8354]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </span>
-                <Link href="mailto:thelastcompanion1@gmail.com" className="text-[#BFC0C0] transition-colors duration-300 hover:text-[#EF8354]">thelastcompanion1@gmail.com</Link>
-              </li>
-            </ul>
-          </div>
-          {/* Newsletter */}
-          <div 
-            className="space-y-4"
-            style={{opacity: isLoaded ? 1 : 0, transform: isLoaded ? 'translateY(0)' : 'translateY(20px)', transition: 'opacity 1.1s ease, transform 1.1s ease'}}
-          >
-            <h3 className="relative inline-block font-serif text-xl font-bold text-[#EF8354]">
-              Subscribe
-              <span className="absolute -bottom-1 left-0 h-0.5 w-1/2 rounded-full bg-[#EF8354]/50"></span>
-            </h3>
-            <p className="text-[#BFC0C0]">Subscribe to our newsletter for updates on our services and resources.</p>
-            <form className="mt-4">
-              <div className="relative">
-                <input 
-                  type="email" 
-                  placeholder="Your email address" 
-                  className="w-full rounded-md border border-[#4F5D75]/30 bg-[#4F5D75]/20 px-4 py-2 text-white placeholder-[#BFC0C0]/70 focus:outline-none focus:ring-2 focus:ring-[#EF8354]/50"
-                />
-                <button 
-                  type="submit" 
-                  className="absolute right-1 top-1 rounded bg-[#EF8354] p-1 text-white transition-colors duration-300 hover:bg-[#D64C1B]"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </button>
+        </div>
+      </div>
+      {/* Main Footer Content */}
+      <div className="relative py-12 md:py-16">
+        <div className="container mx-auto px-4">
+          {/* Trust Badges Section */}
+          <div className="mb-12 grid grid-cols-1 gap-4 md:grid-cols-3 lg:gap-6">
+            {trustBadges.map((badge, index) => (
+              <div 
+                key={index}
+                className="flex items-center justify-center space-x-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 md:space-x-3 md:p-4"
+                style={{
+                  opacity: isLoaded ? 1 : 0,
+                  transform: isLoaded ? 'translateY(0)' : 'translateY(20px)',
+                  transition: `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s`
+                }}
+              >
+                <badge.icon className={`size-4 md:size-6 ${badge.color}`} />
+                <span className="font-medium text-gray-300">{badge.text}</span>
               </div>
-            </form>
-            <div className="mt-4">
+            ))}
+          </div>
+          {/* Main Footer Grid - Enhanced Responsive Layout */}
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+            {/* About Section - Enhanced */}
+            <div 
+              className="space-y-4 md:space-y-6"
+              style={{
+                opacity: isLoaded ? 1 : 0, 
+                transform: isLoaded ? 'translateY(0)' : 'translateY(30px)', 
+                transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.1s'
+              }}
+            >
+              <div className="relative">
+                <h3 className="relative mb-4 inline-block text-2xl font-bold text-amber-400">
+                  About Us
+                  <span className="absolute -bottom-2 left-0 h-1 w-20 rounded-full bg-gradient-to-r from-amber-400 to-orange-400"></span>
+                  <span className="absolute -bottom-1 left-0 h-px w-12 rounded-full bg-amber-300"></span>
+                </h3>
+              </div>
+              <div className="space-y-2 md:space-y-3">
+                <p className="text-xs leading-relaxed text-gray-300 md:text-base">
+                  Providing compassionate Islamic funeral services with dignity and respect, following proper Islamic traditions and practices for our community.
+                </p>
+                <div className="flex items-center space-x-2 text-amber-400">
+                  <FaHeart className="size-4" />
+                  <span className="text-sm font-medium">Serving with compassion since 2020</span>
+                </div>
+              </div>
+              {/* Enhanced Social Links */}
+              <div className="pt-2 md:pt-3">
+                <p className="mb-3 text-xs text-gray-400 md:mb-4">Connect with us:</p>
+                <div className="flex flex-wrap gap-2 md:gap-3">
+                  {socialLinks.map((social, index) => (
+                    <Link 
+                      key={index}
+                      href={social.href} 
+                      className={`group relative rounded-xl border border-white/10 bg-white/5 p-3 backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:border-amber-400/30 ${social.color} ${social.bg}`}
+                      aria-label={social.label}
+                    >
+                      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-amber-400/0 to-amber-400/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                      <social.icon className="relative z-10 size-5 text-gray-400 transition-colors duration-300 group-hover:text-current" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+            {/* Quick Links - Enhanced */}
+            <div 
+              className="space-y-4 md:space-y-6"
+              style={{
+                opacity: isLoaded ? 1 : 0, 
+                transform: isLoaded ? 'translateY(0)' : 'translateY(30px)', 
+                transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s'
+              }}
+            >
+              <div className="relative">
+                <h3 className="relative mb-4 inline-block text-2xl font-bold text-amber-400">
+                  Quick Links
+                  <span className="absolute -bottom-2 left-0 h-1 w-20 rounded-full bg-gradient-to-r from-amber-400 to-orange-400"></span>
+                  <span className="absolute -bottom-1 left-0 h-px w-12 rounded-full bg-amber-300"></span>
+                </h3>
+              </div>
+              <div className="grid grid-cols-1 gap-2 md:gap-2 lg:gap-3">
+                {quickLinks.map((link, index) => (
+                  <Link 
+                    key={index}
+                    href={link.href} 
+                    className="group flex items-center rounded-lg border border-transparent px-4 py-3 text-gray-300 transition-all duration-300 hover:border-amber-400/20 hover:bg-amber-400/5 hover:text-amber-400 md:px-4 md:py-2 md:text-sm"
+                  >
+                    <span className="mr-3 text-lg">{link.icon}</span>
+                    <BiRightArrowAlt className="mr-3 size-4 text-amber-400 transition-transform duration-300 group-hover:translate-x-1" />
+                    <span className="text-sm font-medium md:text-base">{link.name}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            {/* Contact Info - Enhanced */}
+            <div 
+              className="space-y-4 md:space-y-6"
+              style={{
+                opacity: isLoaded ? 1 : 0, 
+                transform: isLoaded ? 'translateY(0)' : 'translateY(30px)', 
+                transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.3s'
+              }}
+            >
+              <div className="relative">
+                <h3 className="relative mb-4 inline-block text-2xl font-bold text-amber-400">
+                  Contact Us
+                  <span className="absolute -bottom-2 left-0 h-1 w-20 rounded-full bg-gradient-to-r from-amber-400 to-orange-400"></span>
+                  <span className="absolute -bottom-1 left-0 h-px w-12 rounded-full bg-amber-300"></span>
+                </h3>
+              </div>
+              <div className="space-y-3 md:space-y-4">
+                {/* Address */}
+                <div className="group flex items-start space-x-2 rounded-xl border border-transparent p-3 transition-all duration-300 hover:border-amber-400/20 hover:bg-amber-400/5 md:space-x-3 lg:space-x-4 md:p-3 lg:p-4">
+                  <div className="flex-shrink-0 rounded-xl bg-amber-400/10 p-3 transition-colors duration-300 group-hover:bg-amber-400/20">
+                    <HiOutlineLocationMarker className="size-5 text-amber-400" />
+                  </div>
+                  <div className="text-xs leading-relaxed text-gray-300 md:text-base">
+                    <p className="mb-1 font-semibold text-white">Our Location</p>
+                    <p>7-13/Plot no120 Alkapur</p>
+                    <p>500089, Hyderabad</p>
+                    <p>Telangana, India</p>
+                  </div>
+                </div>
+                {/* Phone */}
+                <Link 
+                  href="tel:+919618316290" 
+                  className="group flex items-center space-x-3 rounded-xl border border-transparent p-3 transition-all duration-300 hover:border-amber-400/20 hover:bg-amber-400/5 md:space-x-4 md:p-4"
+                >
+                  <div className="flex-shrink-0 rounded-xl bg-amber-400/10 p-2.5 transition-colors duration-300 group-hover:bg-amber-400/20 md:p-3">
+                    <HiOutlinePhone className="size-4 text-amber-400 md:size-5" />
+                  </div>
+                  <div>
+                    <p className="text-xxs uppercase tracking-wide text-gray-400 md:text-xs">Call Us 24/7</p>
+                    <span className="text-xs font-semibold text-gray-300 transition-colors duration-300 group-hover:text-amber-400 md:text-sm">
+                      +91 9618316290
+                    </span>
+                  </div>
+                </Link>
+                {/* Email */}
+                <Link 
+                  href="mailto:thelastcompanion1@gmail.com" 
+                  className="group flex items-center space-x-3 rounded-xl border border-transparent p-3 transition-all duration-300 hover:border-amber-400/20 hover:bg-amber-400/5 md:space-x-4 md:p-4"
+                >
+                  <div className="flex-shrink-0 rounded-xl bg-amber-400/10 p-3 transition-colors duration-300 group-hover:bg-amber-400/20">
+                    <HiOutlineMail className="size-5 text-amber-400" />
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-wide text-gray-400">Email Us</p>
+                    <span className="break-all text-sm font-medium text-gray-300 transition-colors duration-300 group-hover:text-amber-400 md:text-base">
+                      thelastcompanion1@gmail.com
+                    </span>
+                  </div>
+                </Link>
+              </div>
+            </div>
+            {/* Newsletter & CTA - Enhanced */}
+            <div 
+              className="space-y-4 md:space-y-6"
+              style={{
+                opacity: isLoaded ? 1 : 0, 
+                transform: isLoaded ? 'translateY(0)' : 'translateY(30px)', 
+                transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.4s'
+              }}
+            >
+              <div className="relative">
+                <h3 className="relative mb-4 inline-block text-2xl font-bold text-amber-400">
+                  Stay Connected
+                  <span className="absolute -bottom-2 left-0 h-1 w-20 rounded-full bg-gradient-to-r from-amber-400 to-orange-400"></span>
+                  <span className="absolute -bottom-1 left-0 h-px w-12 rounded-full bg-amber-300"></span>
+                </h3>
+              </div>
+              <p className="text-sm leading-relaxed text-gray-300 md:text-base">
+                Subscribe to receive updates on our services, Islamic resources, and community support.
+              </p>
+              {/* Enhanced Newsletter Form */}
+              <form onSubmit={handleNewsletterSubmit} className="space-y-2 md:space-y-3 lg:space-y-4">
+                <div className="relative">
+                  <input 
+                    type="email" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email address" 
+                    className="w-full rounded-xl border border-white/20 bg-white/5 p-2 pr-10 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300 focus:border-amber-400/50 focus:outline-none focus:ring-2 focus:ring-amber-400/50 md:p-3 md:pr-12 lg:p-4 lg:pr-14"
+                    required
+                  />
+                  <button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 transform rounded-lg bg-gradient-to-r from-amber-400 to-orange-400 p-2.5 text-white transition-all duration-300 hover:scale-105 hover:from-orange-400 hover:to-amber-400 disabled:cursor-not-allowed disabled:opacity-70"
+                  >
+                    {isSubmitting ? (
+                      <div className="size-5 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+                    ) : (
+                      <FaArrowRight className="size-4" />
+                    )}
+                  </button>
+                </div>
+                {/* Success Message */}
+                {subscriptionSuccess && (
+                  <div className="animate-fadeIn flex items-center space-x-2 text-sm text-green-400">
+                    <FaCheckCircle className="size-4" />
+                    <span>Successfully subscribed! Thank you.</span>
+                  </div>
+                )}
+              </form>
+              {/* Enhanced CTA Button */}
               <Link 
                 href="/booking" 
-                className="group relative block w-full overflow-hidden rounded-md bg-[#EF8354] py-2 text-center text-white transition-colors duration-300 hover:bg-[#D64C1B]"
+                className="group relative block w-full transform-gpu overflow-hidden rounded-xl bg-gradient-to-r from-amber-400 via-orange-400 to-amber-500 px-3 py-2 text-center font-bold text-white transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-amber-400/25 md:px-4 md:py-3 lg:px-6 lg:py-4"
               >
-                <span className="relative z-10">Book Our Services</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-[#D64C1B] to-[#EF8354] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
+                <span className="relative z-10 flex items-center justify-center space-x-3">
+                  <span className="text-lg">Book Our Services</span>
+                  <FaArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-2" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-400 via-amber-400 to-orange-500 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+                <div className="absolute inset-0 origin-left scale-x-0 transform bg-white/20 transition-transform duration-500 group-hover:scale-x-100"></div>
               </Link>
             </div>
           </div>
         </div>
       </div>
-      {/* Copyright */}
-      <div className="border-t border-[#4F5D75]/30 bg-[#1A1D2A] py-6">
+      {/* Enhanced Legal Links Section */}
+      <div className="border-t border-white/10 bg-black/20 py-3 md:py-4 lg:py-8">
         <div className="container mx-auto px-4">
-          <div className="mb-4 flex justify-center space-x-6">
-            <Link href="#" className="text-[#4F5D75] transition-colors duration-300 hover:text-[#EF8354]">
-              <svg className="size-5 sm:size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
-              </svg>
-            </Link>
-            <Link href="#" className="text-[#4F5D75] transition-colors duration-300 hover:text-[#EF8354]">
-              <svg className="size-5 sm:size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-              </svg>
-            </Link>
-            <Link href="#" className="text-[#4F5D75] transition-colors duration-300 hover:text-[#EF8354]">
-              <svg className="size-5 sm:size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd" />
-              </svg>
-            </Link>
-          </div>
-          <div className="flex flex-col items-center justify-between space-y-4 text-center md:flex-row md:space-y-0 md:text-left">
-            <div>
-              <p className="text-[#4F5D75]">&copy; {new Date().getFullYear()} <span className="text-[#EF8354]">The Last Companion</span>. All rights reserved.</p>
-            </div>
-            {/* Developer Credits with AnimatedTooltip */}
+          <div className="mb-3 flex flex-wrap justify-center gap-2 md:mb-4 md:gap-3 lg:gap-6">
+            {legalLinks.map((link, index) => (
+              <Link 
+                key={index}
+                href={link.href} 
+                className="rounded-lg border border-transparent px-2 py-1.5 text-xs font-medium text-gray-400 transition-all duration-300 hover:border-amber-400/20 hover:bg-amber-400/5 hover:text-amber-400 md:px-3 md:py-2 lg:px-4 lg:py-2 lg:text-sm"
+              >
+                {link.name}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
+      {/* Enhanced Copyright Section */}
+      <div className="border-t border-white/10 bg-black/40 py-3 md:py-4 lg:py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col items-center justify-between space-y-3 md:flex-row md:space-y-0 lg:space-y-0">
+            <div className="text-center md:text-left">
+              <p className="flex items-center justify-center space-x-1 text-xs text-gray-400 md:justify-start md:space-x-1.5 lg:space-x-2 lg:text-base">
+                <span>&copy; {new Date().getFullYear()}</span>
+                <span className="mx-2 text-lg font-bold text-amber-400">The Last Companion</span>
+                <span>All rights reserved.</span>
+              </p>
+              <p className="text-xxs mt-1.5 text-xs text-gray-500 md:mt-1.5 lg:mt-2">
+                Made with <FaHeart className="mx-1 inline size-3 text-red-400" /> for our community
+              </p>
+            </div>
+            <div className="flex items-center space-x-4">
+              <div className="flex space-x-3">
+                {socialLinks.slice(0, 4).map((social, index) => (
+                  <Link 
+                    key={index}
+                    href={social.href} 
+                    className={`rounded-xl border border-white/10 bg-white/5 p-3 text-gray-400 transition-all duration-300 hover:scale-110 hover:border-amber-400/30 ${social.color} ${social.bg}`}
+                    aria-label={social.label}
+                  >
+                    <social.icon className="size-4" />
+                  </Link>
+                ))}
+              </div>
+              <div className="hidden h-6 w-px bg-gray-600 md:block"></div>
+              <div className="text-xs text-gray-500">
+                <p>🕐 {currentTime.toLocaleTimeString('en-US', { 
+                  hour: '2-digit', 
+                  minute: '2-digit',
+                  timeZone: 'Asia/Kolkata'
+                })} IST</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Custom CSS for animations */}
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-10px) rotate(180deg); }
+        }
+        
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fadeIn {
+          animation: fadeIn 0.5s ease-out;
+        }
+      `}</style>
     </footer>
   );
 };
