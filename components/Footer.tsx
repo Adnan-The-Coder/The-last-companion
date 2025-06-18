@@ -2,7 +2,6 @@
 /* eslint-disable tailwindcss/migration-from-tailwind-2 */
 'use client';
 
-import { subscribeEmail } from '@/lib/subscribeEmail';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { 
@@ -20,6 +19,8 @@ import {
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from 'react-icons/hi';
 import { BiRightArrowAlt } from 'react-icons/bi';
 import { MdSecurity, MdSupport, MdVerified } from 'react-icons/md';
+
+import { subscribeEmail } from '@/lib/subscribeEmail';
 
 const Footer = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -132,7 +133,7 @@ const Footer = () => {
       <div className="relative border-b border-amber-500/10 py-12 md:py-16">
         <div className="container mx-auto px-4 text-center">
           <div 
-            className="inline-block max-w-full w-full"
+            className="inline-block w-full max-w-full"
             style={{
               opacity: isLoaded ? 1 : 0,
               transform: isLoaded ? 'translateY(0)' : 'translateY(30px)',
@@ -287,7 +288,7 @@ const Footer = () => {
               </div>
               <div className="space-y-3 md:space-y-4">
                 {/* Address */}
-                <div className="group flex items-start space-x-2 rounded-xl border border-transparent p-3 transition-all duration-300 hover:border-amber-400/20 hover:bg-amber-400/5 md:space-x-3 lg:space-x-4 md:p-3 lg:p-4">
+                <div className="group flex items-start space-x-2 rounded-xl border border-transparent p-3 transition-all duration-300 hover:border-amber-400/20 hover:bg-amber-400/5 md:space-x-3 md:p-3 lg:space-x-4 lg:p-4">
                   <div className="flex-shrink-0 rounded-xl bg-amber-400/10 p-3 transition-colors duration-300 group-hover:bg-amber-400/20">
                     <HiOutlineLocationMarker className="size-5 text-amber-400" />
                   </div>
