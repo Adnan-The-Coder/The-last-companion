@@ -76,7 +76,7 @@ const Footer = () => {
     { name: 'Privacy Policy', href: '/Privacy-Policy' },
     { name: 'Shipping & Delivery', href: '/Shipping-Delivery' },
     { name: 'Cancellation & Refund', href: '/Cancellation-Refund' },
-    { name: 'FAQ', href: '/faq' },
+    { name: 'FAQ', href: '/resources/faqs' },
     { name: 'Support', href: '/support' }
   ];
 

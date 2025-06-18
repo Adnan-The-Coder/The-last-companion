@@ -3,10 +3,24 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import YouTube from 'react-youtube';
+import { FaPlay, FaBook, FaQuestionCircle, FaVideo } from 'react-icons/fa';
 
 export default function ResourcesPage() {
+  const opts = {
+    height: '360',
+    width: '100%',
+    playerVars: {
+      autoplay: 0,
+      controls: 1,
+      modestbranding: 1,
+      rel: 0,
+      showinfo: 0
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-[#F5F5F7]">
+    <div className="min-h-screen bg-gradient-to-b from-white to-[#F5F5F7] overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-[#2D3142] text-white">
         <div className="absolute inset-0 bg-[url('/images/pattern-light.png')] opacity-10"></div>
@@ -37,9 +51,7 @@ export default function ResourcesPage() {
           >
             <div className="relative h-48 bg-[#4F5D75]">
               <div className="absolute inset-0 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="size-20 text-white opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
+                <FaBook className="size-20 text-white opacity-80" />
               </div>
             </div>
             <div className="p-6">
@@ -48,33 +60,33 @@ export default function ResourcesPage() {
                 Comprehensive guides explaining Islamic funeral practices, rituals, and traditions.
               </p>
               <div className="space-y-3">
-                <a href="#" className="group block">
+                <a href="/resources/islamic-funeral-guide.pdf" className="group block">
                   <div className="flex items-center rounded-md p-3 transition-colors duration-200 hover:bg-[#F5F5F7]">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="mr-3 size-5 text-[#EF8354]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                    </svg>
+                    <div className="mr-3 size-5 text-[#EF8354]">
+                      <FaBook />
+                    </div>
                     <div>
                       <p className="font-medium text-[#2D3142] transition-colors duration-200 group-hover:text-[#EF8354]">Islamic Funeral Guide</p>
                       <p className="text-sm text-[#4F5D75]">PDF • 2.4 MB</p>
                     </div>
                   </div>
                 </a>
-                <a href="#" className="group block">
+                <a href="/resources/ghusl-service-guide.pdf" className="group block">
                   <div className="flex items-center rounded-md p-3 transition-colors duration-200 hover:bg-[#F5F5F7]">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="mr-3 size-5 text-[#EF8354]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                    </svg>
+                    <div className="mr-3 size-5 text-[#EF8354]">
+                      <FaBook />
+                    </div>
                     <div>
                       <p className="font-medium text-[#2D3142] transition-colors duration-200 group-hover:text-[#EF8354]">Ghusl Service Guide</p>
                       <p className="text-sm text-[#4F5D75]">PDF • 1.8 MB</p>
                     </div>
                   </div>
                 </a>
-                <a href="#" className="group block">
+                <a href="/resources/preparing-deceased-guide.pdf" className="group block">
                   <div className="flex items-center rounded-md p-3 transition-colors duration-200 hover:bg-[#F5F5F7]">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="mr-3 size-5 text-[#EF8354]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                    </svg>
+                    <div className="mr-3 size-5 text-[#EF8354]">
+                      <FaBook />
+                    </div>
                     <div>
                       <p className="font-medium text-[#2D3142] transition-colors duration-200 group-hover:text-[#EF8354]">Preparing the Deceased</p>
                       <p className="text-sm text-[#4F5D75]">PDF • 3.1 MB</p>
@@ -84,7 +96,7 @@ export default function ResourcesPage() {
               </div>
             </div>
           </motion.div>
-          {/* FAQ */}
+          {/* Video Resources */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -93,9 +105,55 @@ export default function ResourcesPage() {
           >
             <div className="relative h-48 bg-[#2D3142]">
               <div className="absolute inset-0 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="size-20 text-white opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+                <FaVideo className="size-20 text-white opacity-80" />
+              </div>
+            </div>
+            <div className="p-6">
+              <h3 className="mb-2 text-xl font-bold text-[#2D3142]">Video Resources</h3>
+              <p className="mb-4 text-[#4F5D75]">
+                Educational videos explaining Islamic funeral practices and procedures.
+              </p>
+              <div className="space-y-4">
+                <div className="rounded-lg bg-[#F5F5F7] p-4">
+                  <div className="mb-4">
+                    <h4 className="font-medium text-[#2D3142]">Laws of Burial</h4>
+                    <p className="text-sm text-[#4F5D75]">Comprehensive guide to Islamic burial laws and procedures</p>
+                  </div>
+                  <div className="aspect-video">
+                    <YouTube
+                      videoId="gIB8-kyYScI"
+                      opts={opts}
+                      className="w-full"
+                    />
+                  </div>
+                </div>
+                <div className="rounded-lg bg-[#F5F5F7] p-4">
+                  <div className="mb-4">
+                    <h4 className="font-medium text-[#2D3142]">Ghusl Service</h4>
+                    <p className="text-sm text-[#4F5D75]">Step-by-step guide to performing Ghusl service</p>
+                  </div>
+                  <div className="aspect-video">
+                    <YouTube
+                      videoId="BpaKBXZYd0M"
+                      opts={opts}
+                      className="w-full"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* FAQ */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="overflow-hidden rounded-lg bg-white shadow-md"
+          >
+            <div className="relative h-48 bg-[#2D3142]">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <FaQuestionCircle className="size-20 text-white opacity-80" />
               </div>
             </div>
             <div className="p-6">
