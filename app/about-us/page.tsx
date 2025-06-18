@@ -33,7 +33,7 @@ export default function AboutUs() {
             <div style={{opacity: isLoaded ? 1 : 0, transform: isLoaded ? 'translateY(0)' : 'translateY(20px)', transition: 'opacity 0.5s ease, transform 0.5s ease'}}>
               <div className="relative overflow-hidden rounded-lg shadow-xl">
                 <Image 
-                  src="/images/mission.jpg" 
+                  src="/assets/about-demo.jpg" 
                   alt="Our Mission" 
                   width={600} 
                   height={400}
