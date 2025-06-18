@@ -2,6 +2,7 @@
 /* eslint-disable tailwindcss/migration-from-tailwind-2 */
 'use client';
 
+import { subscribeEmail } from '@/lib/subscribeEmail';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { 
@@ -38,19 +39,29 @@ const Footer = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const handleNewsletterSubmit = async (e:any) => {
+  const handleNewsletterSubmit = async (e: any) => {
     e.preventDefault();
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address.');
+      
+      return;
+    }
+
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setEmail('');
+
+    const result = await subscribeEmail(email);
+
+    if (result.success) {
+      setEmail('');
+      setSubscriptionSuccess(true);
+      setTimeout(() => setSubscriptionSuccess(false), 3000);
+    } else {
+      alert(`Subscription failed: ${result.error}`);
+    }
+
     setIsSubmitting(false);
-    setSubscriptionSuccess(true);
-    
-    // Reset success message after 3 seconds
-    setTimeout(() => setSubscriptionSuccess(false), 3000);
   };
 
   const socialLinks = [
